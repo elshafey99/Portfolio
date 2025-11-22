@@ -1,14 +1,14 @@
 :root {
-    /* Warm Autumn Glow Palette - Light Mode */
-    --primary-color: #d62828; /* Flag Red */
-    --primary-hover: #b91f1f;
-    --accent-color: #f77f00; /* Princeton Orange */
-    --bg-color: #eae2b7; /* Vanilla Custard */
+    /* Teal & Navy Palette - Light Mode */
+    --primary-color: #7EBDC3; /* Teal */
+    --primary-hover: #6AACB2;
+    --accent-color: #3D5A6C; /* Navy Blue */
+    --bg-color: #F5F5F0; /* Cream/Beige */
     --card-bg: #ffffff;
-    --text-color: #003049; /* Deep Space Blue */
-    --text-light: #f77f00; /* Princeton Orange */
-    --border-color: #fcbf49; /* Sunflower Gold */
-    --nav-bg: rgba(234, 226, 183, 0.95);
+    --text-color: #2C3E50; /* Dark Blue Grey */
+    --text-light: #7EBDC3; /* Teal */
+    --border-color: #B8D4D8; /* Light Teal */
+    --nav-bg: rgba(245, 245, 240, 0.95);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     
     --font-main: 'Inter', sans-serif;
@@ -16,16 +16,16 @@
 }
 
 body.dark-mode {
-    /* Warm Autumn Glow Palette - Dark Mode */
-    --bg-color: #003049; /* Deep Space Blue */
-    --card-bg: #004060;
-    --text-color: #eae2b7; /* Vanilla Custard */
-    --text-light: #fcbf49; /* Sunflower Gold */
-    --border-color: #f77f00; /* Princeton Orange */
-    --primary-color: #d62828; /* Flag Red */
-    --primary-hover: #b91f1f;
-    --accent-color: #f77f00; /* Princeton Orange */
-    --nav-bg: rgba(0, 48, 73, 0.95);
+    /* Teal & Navy Palette - Dark Mode */
+    --bg-color: #3D5A6C; /* Navy Blue */
+    --card-bg: #4A6A7C;
+    --text-color: #F5F5F0; /* Cream */
+    --text-light: #7EBDC3; /* Teal */
+    --border-color: #7EBDC3;
+    --primary-color: #7EBDC3; /* Teal */
+    --primary-hover: #6AACB2;
+    --accent-color: #B8D4D8; /* Light Teal */
+    --nav-bg: rgba(61, 90, 108, 0.95);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
 }
 
@@ -345,7 +345,7 @@ ul {
 .btn-primary:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(214, 40, 40, 0.3);
+    box-shadow: 0 10px 20px rgba(126, 189, 195, 0.3);
 }
 
 .btn-outline {
@@ -358,7 +358,7 @@ ul {
     background-color: var(--primary-color);
     color: white;
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(214, 40, 40, 0.3);
+    box-shadow: 0 10px 20px rgba(126, 189, 195, 0.3);
 }
 
 .btn-outline:hover {
@@ -401,7 +401,7 @@ ul {
 .skill-card:hover {
     transform: translateY(-10px) scale(1.05);
     border-color: var(--primary-color);
-    box-shadow: 0 15px 30px rgba(214, 40, 40, 0.25);
+    box-shadow: 0 15px 30px rgba(126, 189, 195, 0.25);
 }
 
 .skill-card i {
@@ -441,7 +441,7 @@ ul {
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(214, 40, 40, 0.2);
+    box-shadow: 0 12px 24px rgba(126, 189, 195, 0.2);
     border-color: var(--primary-color);
 }
 
@@ -569,13 +569,13 @@ ul {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(214, 40, 40, 0.7);
+        box-shadow: 0 0 0 0 rgba(126, 189, 195, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 15px rgba(214, 40, 40, 0);
+        box-shadow: 0 0 0 15px rgba(126, 189, 195, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(214, 40, 40, 0);
+        box-shadow: 0 0 0 0 rgba(126, 189, 195, 0);
     }
 }
 
