@@ -210,6 +210,16 @@ ul {
     border: 5px solid var(--primary-color);
     box-shadow: var(--shadow);
     background-color: #ffffff;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
 }
 .greeting {
     display: block;
@@ -217,6 +227,18 @@ ul {
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 1rem;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .name {
@@ -224,6 +246,24 @@ ul {
     font-weight: 800;
     margin-bottom: 1rem;
     line-height: 1.2;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--border-color), var(--primary-color));
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 4s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .title {
@@ -231,6 +271,16 @@ ul {
     color: var(--text-light);
     font-weight: 500;
     margin-bottom: 2rem;
+    animation: fadeIn 1.5s ease-out 0.6s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .description {
@@ -238,11 +288,24 @@ ul {
     margin-bottom: 3rem;
     color: var(--text-light);
     font-size: 1.1rem;
+    animation: fadeInUp 1.5s ease-out 1s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .cta-buttons {
     display: flex;
     gap: 1rem;
+    animation: fadeInUp 1.5s ease-out 1.4s both;
 }
 
 .btn {
@@ -257,11 +320,32 @@ ul {
 .btn-primary {
     background-color: var(--primary-color);
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(214, 40, 40, 0.3);
 }
 
 .btn-outline {
@@ -273,7 +357,8 @@ ul {
 .btn-outline:hover {
     background-color: var(--primary-color);
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(214, 40, 40, 0.3);
 }
 
 .btn-outline:hover {
@@ -308,19 +393,27 @@ ul {
     border-radius: 12px;
     text-align: center;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--border-color);
+    cursor: pointer;
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.05);
     border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(214, 40, 40, 0.25);
 }
 
 .skill-card i {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+    transition: all 0.4s ease;
+}
+
+.skill-card:hover i {
+    transform: rotateY(360deg) scale(1.1);
+    color: var(--accent-color);
 }
 
 .skill-card h3 {
@@ -340,14 +433,16 @@ ul {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: all 0.3s ease;
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(214, 40, 40, 0.2);
+    border-color: var(--primary-color);
 }
 
 .project-content {
