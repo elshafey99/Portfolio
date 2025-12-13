@@ -1,310 +1,640 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mohamed Elshafey | Backend Developer</title>
-    <meta name="description" content="Portfolio of Mohamed Elshafey, a Software Engineer and Backend Developer specializing in Laravel, PHP, and secure API development.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Portfolio of Mohamed Elshafey, a Software Engineer and Backend Developer specializing in Laravel, PHP, and secure API development."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <header class="header">
-        <div class="container">
-            <a href="#home" class="logo">Elshafey<span class="dot">.</span></a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <a href="#home" class="logo">Elshafey<span class="dot">.</span></a>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Toggle Dark Mode"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <span class="greeting">Hi, I'm</span>
-                        <h1 class="name">Mohamed Elshafey</h1>
-                        <p class="title">Software Engineer - Backend Developer (Laravel)</p>
-                        <p class="description">
-                            Junior Backend Laravel Developer with production experience in secure RESTful APIs, modular architectures, scalable multi-tenant systems, database design, Laravel Modules, and clean code principles.
-                        </p>
-                        <div class="cta-buttons">
-                            <a href="#projects" class="btn btn-primary">View Work</a>
-                            <a href="Mohamed-Magdy-Elshafey-Backend.pdf" download class="btn btn-outline">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <img src="mee1.png" alt="Mohamed Elshafey" class="profile-img">
-                    </div>
-                </div>
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <span class="greeting">Hi, I'm</span>
+              <h1 class="name">Mohamed Magdy Elshafey</h1>
+              <p class="title">
+                Software Engineer - Backend Developer (Laravel)
+              </p>
+              <p
+                class="location"
+                style="
+                  color: var(--text-light);
+                  font-size: 1rem;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <i
+                  class="fas fa-map-marker-alt"
+                  style="color: var(--primary-color)"
+                ></i>
+                Cairo, Egypt
+              </p>
+              <p class="description">
+                Junior Backend Laravel Developer with real production experience
+                in building secure RESTful APIs, modular architectures, and
+                scalable multi-tenant systems. Skilled in database design and
+                backend feature development using Laravel Modules and clean code
+                principles. Passionate about solving complex problems and
+                continuously improving code quality while contributing
+                effectively in team environments.
+              </p>
+              <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Work</a>
+                <a
+                  href="Mohamed-Magdy-Elshafey-Backend.pdf"
+                  download
+                  class="btn btn-outline"
+                >
+                  <i class="fas fa-download"></i> Download CV
+                </a>
+              </div>
             </div>
-        </section>
-
-        <section id="about" class="about section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            I am a Junior Backend Laravel Developer with real production experience in building secure RESTful APIs, modular architectures, and scalable multi-tenant systems.
-                        </p>
-                        <p>
-                            Skilled in database design and backend feature development using Laravel Modules and clean code principles. I am passionate about solving complex problems and continuously improving code quality while contributing effectively in team environments.
-                        </p>
-                    </div>
-                </div>
+            <div class="hero-image">
+              <img src="mee1.png" alt="Mohamed Elshafey" class="profile-img" />
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="experience" class="experience section">
-            <div class="container">
-                <h2 class="section-title">Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">08/2025 – Present</div>
-                        <div class="timeline-content">
-                            <h3>Backend Developer</h3>
-                            <span class="company"><a href="https://brmja.tech/" target="_blank" rel="noopener noreferrer">Brmja Tech</a> | Giza, Egypt</span>
-                            <ul>
-                                <li>Built and integrated RESTful APIs using Laravel for production systems.</li>
-                                <li>Developed dynamic admin dashboards and structured relational databases.</li>
-                                <li>Worked with Laravel Modules Architecture to deliver scalable, maintainable features.</li>
-                                <li>Implemented Multi-Tenant structures to support multiple business clients on shared systems.</li>
-                                <li>Integrated Firebase services into backend operations.</li>
-                                <li>Applied MVC principles, clean code practices, and Git workflow in team development.</li>
-                                <li>Focused on performance optimization, debugging, and secure data handling.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">06/2025 – 08/2025</div>
-                        <div class="timeline-content">
-                            <h3>Web Developer</h3>
-                            <span class="company"><a href="https://websolla.com/en" target="_blank" rel="noopener noreferrer">Websolla</a> | Cairo, Egypt</span>
-                            <ul>
-                                <li>Developed dynamic websites and admin dashboards using Laravel.</li>
-                                <li>Converted UI designs into functional interfaces with backend logic.</li>
-                                <li>Focused on clean code practices and smooth admin panel performance.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">02/2025 – 06/2025</div>
-                        <div class="timeline-content">
-                            <h3>Backend Developer (Intern)</h3>
-                            <span class="company"><a href="https://brmja.tech/" target="_blank" rel="noopener noreferrer">Brmja Tech</a> | Giza, Egypt</span>
-                            <ul>
-                                <li>Participated in API development for real-world applications.</li>
-                                <li>Designed custom dashboard features and performed database structuring.</li>
-                                <li>Debugged and enhanced Laravel-based systems in a team environment.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <section id="about" class="about section">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                I am a Junior Backend Laravel Developer with real production
+                experience in building secure RESTful APIs, modular
+                architectures, and scalable multi-tenant systems.
+              </p>
+              <p>
+                Skilled in database design and backend feature development using
+                Laravel Modules and clean code principles. I am passionate about
+                solving complex problems and continuously improving code quality
+                while contributing effectively in team environments.
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="education" class="education section">
-            <div class="container">
-                <h2 class="section-title">Education & Certifications</h2>
-                <div class="education-grid">
-                    <div class="edu-card">
-                        <h3>Bachelor's Degree in Computer Science</h3>
-                        <p class="institution">Faculty of Computers and Artificial Intelligence, Benha University</p>
-                        <p class="date">10/2020 – 07/2024</p>
-                    </div>
-                    <div class="edu-card">
-                        <h3>Building Web Applications using PHP & MYSQL</h3>
-                        <p class="institution">Mahara tech</p>
-                        <p class="date">Dec 2024 - Jan 2025</p>
-                    </div>
-                </div>
+      <section id="experience" class="experience section">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">08/2025 – Present</div>
+              <div class="timeline-content">
+                <h3>Backend Developer</h3>
+                <span class="company"
+                  ><a
+                    href="https://brmja.tech/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Brmja Tech</a
+                  >
+                  | Giza, Egypt</span
+                >
+                <ul>
+                  <li>
+                    Built and integrated RESTful APIs using Laravel for
+                    production systems.
+                  </li>
+                  <li>
+                    Developed dynamic admin dashboards and structured relational
+                    databases.
+                  </li>
+                  <li>
+                    Worked with Laravel Modules Architecture to deliver
+                    scalable, maintainable features.
+                  </li>
+                  <li>
+                    Implemented Multi-Tenant structures to support multiple
+                    business clients on shared systems.
+                  </li>
+                  <li>Integrated Firebase services into backend operations.</li>
+                  <li>
+                    Applied MVC principles, clean code practices, and Git
+                    workflow in team development.
+                  </li>
+                  <li>
+                    Focused on performance optimization, debugging, and secure
+                    data handling.
+                  </li>
+                </ul>
+              </div>
             </div>
-        </section>
-
-        <section id="skills" class="skills section">
-            <div class="container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-category">
-                    <h3>Programming & Database</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card"><i class="fab fa-php"></i><span>PHP</span></div>
-                        <div class="skill-card"><i class="fab fa-laravel"></i><span>Laravel</span></div>
-                        <div class="skill-card"><i class="fas fa-database"></i><span>MySQL</span></div>
-                        <div class="skill-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                        <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
-                        <div class="skill-card"><i class="fas fa-fire"></i><span>Firebase</span></div>
-                        <div class="skill-card"><i class="fas fa-bolt"></i><span>Livewire</span></div>
-                        <div class="skill-card"><i class="fab fa-html5"></i><span>HTML</span></div>
-                        <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-                    </div>
-                </div>
-                
-                <div class="skills-category">
-                    <h3>Concepts & Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card"><i class="fas fa-code"></i><span>OOP</span></div>
-                        <div class="skill-card"><i class="fas fa-cubes"></i><span>SOLID Principles</span></div>
-                        <div class="skill-card"><i class="fas fa-server"></i><span>RESTful APIs</span></div>
-                        <div class="skill-card"><i class="fas fa-layer-group"></i><span>Design Patterns</span></div>
-                        <div class="skill-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
-                        <div class="skill-card"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3>Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card"><i class="fas fa-language"></i><span>Arabic (Native)</span></div>
-                        <div class="skill-card"><i class="fas fa-language"></i><span>English (Good)</span></div>
-                    </div>
-                </div>
+            <div class="timeline-item">
+              <div class="timeline-date">06/2025 – 08/2025</div>
+              <div class="timeline-content">
+                <h3>Web Developer</h3>
+                <span class="company"
+                  ><a
+                    href="https://websolla.com/en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Websolla</a
+                  >
+                  | Cairo, Egypt</span
+                >
+                <ul>
+                  <li>
+                    Developed dynamic websites and admin dashboards using
+                    Laravel.
+                  </li>
+                  <li>
+                    Converted UI designs into functional interfaces with backend
+                    logic.
+                  </li>
+                  <li>
+                    Focused on clean code practices and smooth admin panel
+                    performance.
+                  </li>
+                </ul>
+              </div>
             </div>
-        </section>
-
-        <section id="projects" class="projects section">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Invoice System</h3>
-                            <p class="project-desc">A Laravel-based system for managing invoices, with features for invoice creation, payments, and printing. Includes sections for departments, products, and user permissions.</p>
-                            <div class="project-tech">
-                                <span>Laravel</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Customize CRM System</h3>
-                            <p class="project-desc">Internal Laravel CRM with HMVC architecture. Features included client management, invoicing with email, contract control, user permissions, employee reporting, and attendance API integration.</p>
-                            <div class="project-tech">
-                                <span>Laravel</span><span>HMVC</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Online Pay Solution</h3>
-                            <p class="project-desc">Backend platform serving as a secure intermediary between users and Fawry services. Includes API-based client system, document verification, admin dashboard, and automated emails.</p>
-                            <div class="project-tech">
-                                <span>Laravel 11</span><span>PHP 8.2</span><span>MySQL</span><span>Sanctum</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 4 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Faya ERP (In Progress)</h3>
-                            <p class="project-desc">Modular multi-tenant system for restaurants and cafés. Implementing new features using Laravel Modules Architecture, optimizing database workflows, and integrating services.</p>
-                            <div class="project-tech">
-                                <span>Laravel 11</span><span>Multi-Tenant</span><span>Modular</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 5 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Bayt-Link (In Progress)</h3>
-                            <p class="project-desc">Backend for a full property-management system. Built modules for property structuring, financial management, online payments, and internal chat. Implemented clean RESTful APIs.</p>
-                            <div class="project-tech">
-                                <span>Laravel 12</span><span>Livewire</span><span>RESTful APIs</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 6 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">LRG</h3>
-                            <p class="project-desc">Dynamic dashboard development and real-time data sync between backend and frontend.</p>
-                            <div class="project-tech">
-                                <span>Laravel 10</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 7 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Bait-Elkhebra</h3>
-                            <p class="project-desc">Dynamic Laravel-based dashboard with real-time data synchronization, ensuring a seamless connection between backend operations and front-end user experience.</p>
-                            <div class="project-tech">
-                                <span>Laravel 10</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <div class="timeline-item">
+              <div class="timeline-date">02/2025 – 06/2025</div>
+              <div class="timeline-content">
+                <h3>Backend Developer (Intern)</h3>
+                <span class="company"
+                  ><a
+                    href="https://brmja.tech/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Brmja Tech</a
+                  >
+                  | Giza, Egypt</span
+                >
+                <ul>
+                  <li>
+                    Participated in API development for real-world applications.
+                  </li>
+                  <li>
+                    Designed custom dashboard features and performed database
+                    structuring.
+                  </li>
+                  <li>
+                    Debugged and enhanced Laravel-based systems in a team
+                    environment.
+                  </li>
+                </ul>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="contact" class="contact section">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-content">
-                    <p class="contact-text">
-                        I'm currently available for freelance work or full-time opportunities. If you have a project that needs some backend magic, let's talk.
-                    </p>
-                    <div class="contact-links">
-                        <a href="mailto:mahamedmagdy005@gmail.com" class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>mahamedmagdy005@gmail.com</span>
-                        </a>
-                        <a href="tel:+201025329322" class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+20 102 532 9322</span>
-                        </a>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/elshafey99" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/mohamed-elshafey-168083306" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
+      <section id="education" class="education section">
+        <div class="container">
+          <h2 class="section-title">Education & Certifications</h2>
+          <div class="education-grid">
+            <div class="edu-card">
+              <h3>Bachelor's Degree in Computer Science</h3>
+              <p class="institution">
+                Faculty of Computers and Artificial Intelligence, Benha
+                University
+              </p>
+              <p class="date">10/2020 – 07/2024</p>
             </div>
-        </section>
+            <div class="edu-card">
+              <h3>Building Web Applications using PHP & MYSQL</h3>
+              <p class="institution">Mahara tech</p>
+              <p class="date">Dec 2024 - Jan 2025</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills section">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-category">
+            <h3>Programming & Database</h3>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <i class="fab fa-php"></i><span>PHP</span>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-laravel"></i><span>Laravel</span>
+              </div>
+              <div class="skill-card">
+                <i class="fas fa-database"></i><span>MySQL</span>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-js"></i><span>JavaScript</span>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-python"></i><span>Python</span>
+              </div>
+              <div class="skill-card">
+                <i class="fas fa-fire"></i><span>Firebase</span>
+              </div>
+              <div class="skill-card">
+                <i class="fas fa-bolt"></i><span>Livewire</span>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-html5"></i><span>HTML</span>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-css3-alt"></i><span>CSS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3>Concepts & Tools</h3>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <i class="fas fa-code"></i><span>OOP</span>
+              </div>
+              <div class="skill-card">
+                <i class="fas fa-cubes"></i><span>SOLID Principles</span>
+              </div>
+              <div class="skill-card">
+                <i class="fas fa-server"></i><span>RESTful APIs</span>
+              </div>
+              <div class="skill-card">
+                <i class="fas fa-layer-group"></i><span>Design Patterns</span>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-git-alt"></i><span>Git</span>
+              </div>
+              <div class="skill-card">
+                <i class="fab fa-bootstrap"></i><span>Bootstrap</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3>Languages</h3>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <i class="fas fa-language"></i><span>Arabic (Native)</span>
+              </div>
+              <div class="skill-card">
+                <i class="fas fa-language"></i><span>English (Good)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects section">
+        <div class="container">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="projects-grid">
+            <!-- Project 1: Bayt-Link -->
+            <article class="project-card">
+              <div class="project-content">
+                <h3 class="project-title">
+                  Bayt-Link
+                  <span style="color: var(--accent-color); font-size: 0.85rem"
+                    >(In Progress)</span
+                  >
+                </h3>
+                <p class="project-desc">
+                  Developed the backend for a full property-management system
+                  serving property owners and residents. Built modules for
+                  property structuring (buildings, floors, units), user roles,
+                  financial management (revenues, expenses, maintenance fees),
+                  online payments, voting on decisions, complaints, internal
+                  chat, technician directory, notifications, and subscription
+                  plans. Implemented clean RESTful APIs, secure validations, and
+                  optimized database workflows.
+                </p>
+                <div class="project-tech">
+                  <span>Laravel 12</span><span>MySQL</span><span>Livewire</span
+                  ><span>RESTful APIs</span><span>Clean Architecture</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2: Faya ERP -->
+            <article class="project-card">
+              <div class="project-content">
+                <h3 class="project-title">
+                  Faya ERP
+                  <span style="color: var(--accent-color); font-size: 0.85rem"
+                    >(In Progress)</span
+                  >
+                </h3>
+                <p class="project-desc">
+                  Working on backend development for "Faya ERP", a modular
+                  multi-tenant system for restaurants and cafés. Responsible for
+                  implementing new features using Laravel Modules Architecture,
+                  designing and improving database workflows, and integrating
+                  services between different business domains such as inventory
+                  and sales. Focused on performance optimization, clean code
+                  practices, and scalable solutions to support multiple tenants
+                  within a shared database environment.
+                </p>
+                <div class="project-tech">
+                  <span>Laravel 11</span><span>MySQL</span
+                  ><span>Multi-Tenant</span><span>Modular Development</span
+                  ><span>RESTful APIs</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3: Online Pay Solution -->
+            <article class="project-card">
+              <div class="project-content">
+                <h3 class="project-title">Online Pay Solution</h3>
+                <p class="project-desc">
+                  Developed a backend platform that serves as a secure
+                  intermediary between users and Fawry services. Users register
+                  through an API-based client system and submit verification
+                  documents, while admins review and approve accounts through an
+                  advanced dashboard. The platform includes automated email
+                  notifications and multi-language support.
+                </p>
+                <div class="project-tech">
+                  <span>Laravel 11</span><span>PHP 8.2</span><span>MySQL</span
+                  ><span>Sanctum</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4: Customize CRM System -->
+            <article class="project-card">
+              <div class="project-content">
+                <h3 class="project-title">Customize CRM System</h3>
+                <p class="project-desc">
+                  Developed an internal Laravel CRM with HMVC architecture.
+                  Features included client management, invoicing with email,
+                  contract control, user permissions, employee reporting, and
+                  attendance API integration.
+                </p>
+                <div class="project-tech">
+                  <span>Laravel</span><span>HMVC</span><span>MySQL</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 5: Invoice System -->
+            <article class="project-card">
+              <div class="project-content">
+                <h3 class="project-title">Invoice System</h3>
+                <p class="project-desc">
+                  A Laravel-based system for managing invoices, with features
+                  for invoice creation, payments, and printing. Includes
+                  sections for departments, products, and user permissions.
+                </p>
+                <div class="project-tech">
+                  <span>Laravel</span><span>PHP</span><span>MySQL</span
+                  ><span>Bootstrap</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 6: LRG -->
+            <article class="project-card">
+              <div class="project-content">
+                <h3 class="project-title">LRG</h3>
+                <p class="project-desc">
+                  Worked on dynamic dashboard development and real-time data
+                  sync between backend and frontend.
+                </p>
+                <div class="project-tech">
+                  <span>Laravel 10</span><span>PHP</span><span>MySQL</span
+                  ><span>Bootstrap</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 7: Bait-Elkhebra -->
+            <article class="project-card">
+              <div class="project-content">
+                <h3 class="project-title">Bait-Elkhebra</h3>
+                <p class="project-desc">
+                  Developed and customized a dynamic Laravel-based dashboard
+                  with real-time data synchronization, ensuring a seamless
+                  connection between backend operations and front-end user
+                  experience.
+                </p>
+                <div class="project-tech">
+                  <span>Laravel 10</span><span>PHP</span><span>MySQL</span
+                  ><span>Bootstrap</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="contact-content">
+            <p class="contact-text">
+              I'm currently available for freelance work or full-time
+              opportunities. If you have a project that needs some backend
+              magic, let's talk.
+            </p>
+
+            <!-- Contact Form -->
+            <form
+              class="contact-form"
+              action="https://formsubmit.co/mahamedmagdy005@gmail.com"
+              method="POST"
+            >
+              <!-- Honeypot -->
+              <input type="text" name="_honey" style="display: none" />
+
+              <!-- Disable Captcha -->
+              <input type="hidden" name="_captcha" value="false" />
+
+              <!-- Success Page -->
+              <input
+                type="hidden"
+                name="_next"
+                value="https://elshafey99.github.io/portfolio/success.html"
+              />
+
+              <!-- Subject -->
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission - Portfolio"
+              />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">
+                    <i class="fas fa-user"></i>
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Mohamed Ahmed"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">
+                    <i class="fas fa-envelope"></i>
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="mohamed@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">
+                    <i class="fas fa-phone"></i>
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+20 100 000 0000"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">
+                    <i class="fas fa-tag"></i>
+                    Subject
+                  </label>
+                  <select id="subject" name="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="Job Opportunity">Job Opportunity</option>
+                    <option value="Freelance Project">Freelance Project</option>
+                    <option value="Collaboration">Collaboration</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">
+                  <i class="fas fa-comment-dots"></i>
+                  Your Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project or opportunity..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+
+            <!-- Contact Links -->
+            <div class="contact-divider">
+              <span>Or reach me directly</span>
+            </div>
+
+            <div class="contact-links">
+              <a href="mailto:mahamedmagdy005@gmail.com" class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>mahamedmagdy005@gmail.com</span>
+              </a>
+              <a href="tel:+201025329322" class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+20 102 532 9322</span>
+              </a>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://github.com/elshafey99"
+                target="_blank"
+                aria-label="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://linkedin.com/in/mohamed-elshafey-168083306"
+                target="_blank"
+                aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Mohamed Elshafey. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 Mohamed Magdy Elshafey. All rights reserved.</p>
+      </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/201025329322" target="_blank" class="whatsapp-float" aria-label="Contact on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <a
+      href="https://wa.me/201025329322"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Contact on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
