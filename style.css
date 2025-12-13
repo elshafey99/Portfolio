@@ -1483,6 +1483,9 @@ html[dir="rtl"] .contact-item span {
   left: 50%;
   transform: translateX(-50%);
   padding-bottom: 0.75rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 90%;
 }
 
 .skills-category h3::after {
@@ -1641,12 +1644,15 @@ html[dir="rtl"] .contact-item span {
 
   /* Skills Mobile */
   .skills-category {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .skills-category h3 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    max-width: 95%;
+    line-height: 1.4;
+    padding: 0 0.5rem 0.75rem;
   }
 
   .skills-grid {
@@ -1654,18 +1660,21 @@ html[dir="rtl"] .contact-item span {
   }
 
   .skill-card {
-    padding: 1rem;
+    padding: 1.25rem 1rem;
     min-width: 100px;
     flex: 0 0 calc(50% - 0.5rem);
     max-width: calc(50% - 0.5rem);
   }
 
   .skill-card i {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 
   .skill-card span {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   /* Projects Mobile */
@@ -1959,5 +1968,17 @@ html[dir="rtl"] .contact-item span {
   html[dir="rtl"] .whatsapp-float {
     left: 20px;
     right: auto;
+  }
+
+  /* RTL Skills Section Mobile */
+  html[dir="rtl"] .skills-category h3 {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    word-spacing: 0.05em;
+  }
+
+  html[dir="rtl"] .skill-card span {
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }

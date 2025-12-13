@@ -102,9 +102,8 @@ const translations = {
       title: "Skills",
       categories: {
         programming: "Programming & Database",
-        concepts: "Concepts",
-        frameworks: "Frameworks & Tools",
-        soft: "Soft Skills",
+        concepts: "Concepts & Tools",
+        languages: "Languages",
       },
     },
 
@@ -310,9 +309,8 @@ const translations = {
       title: "المهارات",
       categories: {
         programming: "البرمجة وقواعد البيانات",
-        concepts: "المفاهيم",
-        frameworks: "الأطر والأدوات",
-        soft: "المهارات الشخصية",
+        concepts: "المفاهيم والأدوات",
+        languages: "اللغات",
       },
     },
 
