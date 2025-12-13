@@ -1524,4 +1524,171 @@ ul {
   .timeline-content ul li {
     margin-bottom: 0.4rem;
   }
+
+  /* Contact Section Mobile */
+  .contact-content {
+    max-width: 100%;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+  }
+
+  .contact-item {
+    min-width: auto;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .contact-item span {
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    gap: 1.5rem;
+  }
+
+  .social-links a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  /* Section Titles Mobile */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title::after {
+    width: 60px;
+    height: 4px;
+  }
+
+  /* About Section Mobile */
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Container Mobile */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  /* WhatsApp Button Mobile */
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 28px;
+  }
+
+  /* Location Mobile */
+  .location {
+    font-size: 0.9rem !important;
+    justify-content: center;
+  }
+}
+
+/* Tablet Responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero-content {
+    gap: 3rem;
+  }
+
+  .profile-img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .name {
+    font-size: 3.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid {
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    min-width: 130px;
+  }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .name {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .greeting {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+  }
+
+  .skill-card {
+    padding: 0.75rem;
+    min-width: 90px;
+  }
+
+  .skill-card i {
+    font-size: 1.75rem;
+  }
+
+  .skill-card span {
+    font-size: 0.8rem;
+  }
+
+  .contact-item {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
 }
