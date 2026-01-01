@@ -1,0 +1,71 @@
+
+> portfolio-nextjs@0.1.0 lint
+> eslint
+
+
+D:\Projects\portfolio-nextjs\components\sections\About.tsx
+   8:3  warning  'Coffee' is defined but never used        @typescript-eslint/no-unused-vars
+  10:3  warning  'Calendar' is defined but never used      @typescript-eslint/no-unused-vars
+  11:3  warning  'FolderOpen' is defined but never used    @typescript-eslint/no-unused-vars
+  20:3  warning  'Server' is defined but never used        @typescript-eslint/no-unused-vars
+  26:3  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+  34:3  warning  'Lightbulb' is defined but never used     @typescript-eslint/no-unused-vars
+
+D:\Projects\portfolio-nextjs\components\sections\Contact.tsx
+  21:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Projects\portfolio-nextjs\components\sections\Contact.tsx:21:7
+  19 |   useEffect(() => {
+  20 |     if (state.succeeded) {
+> 21 |       setShowSuccess(true);
+     |       ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |       const timer = setTimeout(() => {
+  23 |         setShowSuccess(false);
+  24 |         reset();  react-hooks/set-state-in-effect
+
+D:\Projects\portfolio-nextjs\components\sections\Projects.tsx
+   20:12  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-explicit-any
+   30:12  warning  'onMouseMove' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  101:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Projects\portfolio-nextjs\components\sections\Projects.tsx:101:5
+   99 |
+  100 |   useEffect(() => {
+> 101 |     setMounted(true);
+      |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  102 |   }, []);
+  103 |
+  104 |   return (  react-hooks/set-state-in-effect
+
+D:\Projects\portfolio-nextjs\components\shared\Footer.tsx
+  1:34  warning  'Twitter' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Projects\portfolio-nextjs\components\shared\LeftSidebar.tsx
+   4:8  warning  'Link' is defined but never used      @typescript-eslint/no-unused-vars
+  14:3  warning  'Database' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Projects\portfolio-nextjs\components\shared\MobileHeader.tsx
+  16:10  warning  'personalInfo' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Projects\portfolio-nextjs\lib\data.ts
+  1:10  warning  'Laptop' is defined but never used       @typescript-eslint/no-unused-vars
+  1:18  warning  'MonitorPlay' is defined but never used  @typescript-eslint/no-unused-vars
+  1:31  warning  'Globe' is defined but never used        @typescript-eslint/no-unused-vars
+
+D:\Projects\portfolio-nextjs\tailwind.config.ts
+  96:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 18 problems (4 errors, 14 warnings)
+

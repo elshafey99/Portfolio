@@ -1,0 +1,17 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34D399;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="#1a1a1a"/>
+  <rect x="80" y="80" width="240" height="140" rx="15" fill="url(#grad3)" opacity="0.9"/>
+  <rect x="100" y="110" width="200" height="30" rx="5" fill="#fff" opacity="0.3"/>
+  <circle cx="150" cy="180" r="15" fill="#fff" opacity="0.6"/>
+  <circle cx="200" cy="180" r="15" fill="#fff" opacity="0.6"/>
+  <circle cx="250" cy="180" r="15" fill="#fff" opacity="0.6"/>
+  <text x="200" y="70" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#fff" text-anchor="middle">Online Pay</text>
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="14" fill="#fff" opacity="0.7" text-anchor="middle">Payment Solution</text>
+</svg>
+
