@@ -45,7 +45,12 @@ export const metadata: Metadata = {
     "Laravel Modules",
     "Clean Architecture",
   ],
-  authors: [{ name: "Mohamed Magdy Elshafey", url: "https://mohamed-elshafey.vercel.app" }],
+  authors: [
+    {
+      name: "Mohamed Magdy Elshafey",
+      url: "https://mohamed-elshafey.vercel.app",
+    },
+  ],
   creator: "Mohamed Magdy Elshafey",
   publisher: "Mohamed Magdy Elshafey",
   alternates: {
@@ -98,7 +103,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "ANxwWa80I3sel5DkgC7HXxLgGVMu-gc_x3q5WghjbqI",
   },
 };
 
