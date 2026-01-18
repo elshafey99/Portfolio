@@ -58,10 +58,16 @@ export const projects = [
     title: "Bayt-Link (In Progress)",
     description:
       "Developed the backend for a full property-management system serving property owners and residents. Built modules for property structuring (buildings, floors, units), user roles, financial management (revenues, expenses, maintenance fees), online payments, voting on decisions, complaints, internal chat, technician directory, notifications, and subscription plans.",
-    tech: ["Laravel 12", "MySQL", "Livewire", "RESTful APIs", "Clean Architecture"],
+    tech: [
+      "Laravel 12",
+      "MySQL",
+      "Livewire",
+      "RESTful APIs",
+      "Clean Architecture",
+    ],
     github: "https://github.com/elshafey99",
     demo: "#",
-    image: "/projects/bayt-link.svg",
+    image: "/projects/bayt-link.png",
     details:
       "Developed the backend for a full property-management system serving property owners and residents. Built modules for property structuring (buildings, floors, units), user roles, financial management (revenues, expenses, maintenance fees), online payments, voting on decisions, complaints, internal chat, technician directory, notifications, and subscription plans. Implemented clean RESTful APIs, secure validations, and optimized database workflows.",
   },
@@ -69,10 +75,16 @@ export const projects = [
     title: "Faya ERP (In Progress)",
     description:
       "Working on backend development for 'Faya ERP', a modular multi-tenant system for restaurants and cafés. Responsible for implementing new features using Laravel Modules Architecture, designing and improving database workflows, and integrating services between different business domains such as inventory and sales.",
-    tech: ["Laravel 11", "MySQL", "Multi-Tenant", "Modular Development", "RESTful APIs"],
+    tech: [
+      "Laravel 11",
+      "MySQL",
+      "Multi-Tenant",
+      "Modular Development",
+      "RESTful APIs",
+    ],
     github: "https://github.com/elshafey99",
-    demo: "#",
-    image: "/projects/faya-erp.svg",
+    demo: "https://test.tsc-group.org/",
+    image: "/projects/faya-erp.jpg",
     details:
       "Working on backend development for 'Faya ERP', a modular multi-tenant system for restaurants and cafés. Responsible for implementing new features using Laravel Modules Architecture, designing and improving database workflows, and integrating services between different business domains such as inventory and sales. Focused on performance optimization, clean code practices, and scalable solutions to support multiple tenants within a shared database environment.",
   },
@@ -83,7 +95,7 @@ export const projects = [
     tech: ["Laravel 11", "PHP 8.2", "MySQL", "Sanctum"],
     github: "https://github.com/elshafey99",
     demo: "https://onlinepaysolution.com/",
-    image: "/projects/online-pay.svg",
+    image: "/projects/online-pay.png",
     details:
       "Developed a backend platform that serves as a secure intermediary between users and Fawry services. Users register through an API-based client system and submit verification documents, while admins review and approve accounts through an advanced dashboard. The platform includes automated email notifications and multi-language support.",
   },
@@ -105,7 +117,7 @@ export const projects = [
     tech: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com/elshafey99/invoice_system",
     demo: "#",
-    image: "/projects/invoice-system.svg",
+    image: "/projects/invoice-system.png",
     details:
       "A Laravel-based system for managing invoices, with features for invoice creation, payments, and printing. Includes sections for departments, products, and user permissions.",
   },
@@ -116,7 +128,7 @@ export const projects = [
     tech: ["Laravel 10", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com/elshafey99",
     demo: "https://lrginvestmentsllc.com/en",
-    image: "/projects/lrg.svg",
+    image: "/projects/lrg.png",
     details:
       "Worked on dynamic dashboard development and real-time data sync between backend and frontend.",
   },
@@ -127,7 +139,18 @@ export const projects = [
     tech: ["Laravel 10", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com/elshafey99",
     demo: "https://bait-elkhebra.com/en",
-    image: "/projects/bait-elkhebra.svg",
+    image: "/projects/bait-elkhebra.png",
+    details:
+      "Developed and customized a dynamic Laravel-based dashboard with real-time data synchronization, ensuring a seamless connection between backend operations and front-end user experience.",
+  },
+  {
+    title: "Vertex",
+    description:
+      "Developed and customized a dynamic Laravel-based dashboard with real-time data synchronization, ensuring a seamless connection between backend operations and front-end user experience.",
+    tech: ["Laravel 10", "PHP", "MySQL", "Bootstrap"],
+    github: "https://github.com/elshafey99",
+    demo: "https://vertex-egy.com/en",
+    image: "/projects/vertex.png",
     details:
       "Developed and customized a dynamic Laravel-based dashboard with real-time data synchronization, ensuring a seamless connection between backend operations and front-end user experience.",
   },
@@ -175,7 +198,8 @@ export const experience = [
 
 export const education = {
   degree: "Bachelor's Degree in Computer Science",
-  university: "Faculty of Computers and Artificial Intelligence, Benha University",
+  university:
+    "Faculty of Computers and Artificial Intelligence, Benha University",
   duration: "10/2020 – 07/2024",
   location: "Benha, Egypt",
   details:
@@ -211,10 +235,14 @@ export const aboutContent = {
     { label: "Scalable", desc: "Building scalable multi-tenant systems" },
     { label: "Clean Code", desc: "Clean code principles and best practices" },
     { label: "Modular", desc: "Modular development with Laravel Modules" },
-    { label: "Production-Ready", desc: "Delivering production-ready solutions" },
+    {
+      label: "Production-Ready",
+      desc: "Delivering production-ready solutions",
+    },
   ],
   skillsTitle: "Technical Expertise",
-  skillsDesc: "A comprehensive overview of my technical skills and professional experience in backend development",
+  skillsDesc:
+    "A comprehensive overview of my technical skills and professional experience in backend development",
 };
 
 export const experienceContent = {
@@ -237,7 +265,8 @@ export const projectsContent = {
 export const contactContent = {
   badge: "Get In Touch",
   title: "Contact Me",
-  subtitle: "I'm currently available for freelance work or full-time opportunities",
+  subtitle:
+    "I'm currently available for freelance work or full-time opportunities",
   description:
     "If you have a project that needs some backend magic, let's talk. I'm here to help you build scalable, secure, and efficient backend solutions.",
   btnSend: "Send Message",
