@@ -245,6 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update Footer
     document.querySelector(
       ".footer p"
-    ).innerHTML = `&copy; 2025 Mohamed Magdy Elshafey. ${t.footer.rights}`;
+    ).innerHTML = `&copy; 2026 Mohamed Magdy Elshafey. ${t.footer.rights}`;
   }
 });
