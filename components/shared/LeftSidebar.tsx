@@ -139,13 +139,13 @@ export function LeftSidebar() {
 
             {/* Image Frame - Large and clear */}
             <div className="relative w-40 h-40 rounded-full bg-[#151515] border-2 border-white/10 overflow-visible">
-              <div className="relative w-full h-full rounded-full overflow-hidden bg-neutral-800 flex items-center justify-center">
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-neutral-800">
                 <Image
                   src="/mee1-removebg-preview.png"
                   alt="Mohamed Magdy Elshafey"
-                  width={152}
-                  height={152}
-                  className="object-contain rounded-full group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  className="object-cover object-[center_12%] group-hover:scale-110 transition-transform duration-500"
+                  sizes="160px"
                   quality={100}
                   priority
                   unoptimized
