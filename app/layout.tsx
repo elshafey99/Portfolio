@@ -5,6 +5,7 @@ import { SideNav } from "@/components/shared/SideNav";
 import { LeftSidebar } from "@/components/shared/LeftSidebar";
 import { MainContentBackground } from "@/components/shared/MainContentBackground";
 import { MobileHeader } from "@/components/shared/MobileHeader";
+import { FloatingWhatsApp } from "@/components/shared/FloatingWhatsApp";
 import { JsonLd } from "@/components/JsonLd";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -138,6 +139,7 @@ export default function RootLayout({
             <div className="w-full relative z-10">{children}</div>
           </main>
         </div>
+        <FloatingWhatsApp />
         <JsonLd />
       </body>
     </html>
