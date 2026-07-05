@@ -12,14 +12,14 @@ const ProjectsComponent = dynamic(
 export const metadata: Metadata = {
   title: "Projects - Portfolio",
   description:
-    "Explore my portfolio of backend development projects built with Laravel, PHP, MySQL, and modern technologies. Showcasing real-world applications including property management systems, ERP solutions, and payment platforms.",
+    "Explore backend development projects including Bayt-Link SaaS, Faya ERP, Qeema ERP, and production APIs built with Laravel and Node.js.",
   alternates: {
     canonical: "https://mohamed-elshafey.vercel.app/projects",
   },
   openGraph: {
     title: "Projects Portfolio - Mohamed Magdy Elshafey | Backend Developer",
     description:
-      "Explore my portfolio of backend applications built with Laravel, PHP, and scalable architectures.",
+      "Portfolio of SaaS platforms, ERP systems, and production APIs built with Laravel and Node.js.",
     url: "https://mohamed-elshafey.vercel.app/projects",
     images: [
       {

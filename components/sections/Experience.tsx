@@ -54,9 +54,16 @@ export function Experience() {
                 <div className="p-6 md:p-8 rounded-2xl bg-[#252525] border border-white/10 hover:border-primary/30 transition-all duration-200 relative overflow-hidden group-hover:-translate-y-0.5">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4 relative z-10">
                     <div>
-                      <h4 className="text-2xl font-bold text-white font-outfit group-hover:text-primary/90 transition-colors">
-                        {job.role}
-                      </h4>
+                      <div className="flex flex-wrap items-center gap-3 mb-1">
+                        <h4 className="text-2xl font-bold text-white font-outfit group-hover:text-primary/90 transition-colors">
+                          {job.role}
+                        </h4>
+                        {job.duration.includes("Present") && (
+                          <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1 rounded-full">
+                            Current
+                          </span>
+                        )}
+                      </div>
                       <p className="text-lg font-medium text-slate-400 mt-2">
                         {job.company}
                       </p>

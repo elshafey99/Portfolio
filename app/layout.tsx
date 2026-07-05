@@ -20,20 +20,22 @@ export const metadata: Metadata = {
     template: "%s | Mohamed Magdy Elshafey - Backend Developer",
   },
   description:
-    "Passionate Backend Developer specializing in Laravel, building scalable systems and clean APIs. Experienced in multi-tenant architectures, modular development, and delivering production-ready solutions.",
+    "Experienced Backend Developer with 2+ years building scalable Laravel and SaaS systems. Specialized in RESTful APIs, multi-tenant architectures, and performance-driven database design.",
   keywords: [
     "Backend Developer",
     "Laravel Developer",
     "PHP Developer",
     "RESTful APIs",
     "Multi-Tenant Systems",
+    "SaaS Architecture",
     "Laravel",
     "PHP",
     "MySQL",
+    "Node.js",
     "JavaScript",
-    "Python",
-    "Firebase",
     "Livewire",
+    "RBAC",
+    "HMVC",
     "Web Development",
     "API Development",
     "Database Design",
@@ -41,7 +43,6 @@ export const metadata: Metadata = {
     "Portfolio",
     "Backend Engineer",
     "Web Developer Egypt",
-    "Freelance Developer",
     "Laravel Modules",
     "Clean Architecture",
   ],
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mohamed Magdy Elshafey | Backend Developer | Laravel Specialist",
     description:
-      "Passionate Backend Developer specializing in Laravel, building scalable systems and clean APIs. Experienced in multi-tenant architectures and modular development.",
+      "Experienced Backend Developer specializing in Laravel and SaaS architectures. Building scalable RESTful APIs and multi-tenant systems.",
     url: "https://mohamed-elshafey.vercel.app",
     siteName: "Mohamed Magdy Elshafey - Backend Developer Portfolio",
     images: [
@@ -87,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mohamed Magdy Elshafey | Backend Developer",
     description:
-      "Passionate Backend Developer specializing in Laravel, building scalable systems and clean APIs.",
+      "Experienced Backend Developer specializing in Laravel, building scalable SaaS systems and clean RESTful APIs.",
     images: ["/mee1-removebg-preview.png"],
     creator: "@elshafey99",
   },

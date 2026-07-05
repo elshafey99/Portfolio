@@ -3,16 +3,11 @@ import { motion } from "framer-motion";
 import { Download, Monitor } from "lucide-react";
 import {
   SiJavascript,
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiHtml5,
   SiLaravel,
   SiPhp,
   SiMysql,
-  SiPython,
-  SiFirebase,
+  SiNodedotjs,
+  SiBootstrap,
 } from "react-icons/si";
 import Link from "next/link";
 import Image from "next/image";
@@ -75,20 +70,20 @@ export function Hero() {
             delay: 3,
             duration: 11,
           },
-          // Python
+          // Node.js
           {
-            Icon: SiPython,
-            color: "text-yellow-500",
+            Icon: SiNodedotjs,
+            color: "text-green-500",
             x: "50%",
             y: "10%",
             size: 44,
             delay: 4,
             duration: 12,
           },
-          // Firebase
+          // Bootstrap
           {
-            Icon: SiFirebase,
-            color: "text-orange-500",
+            Icon: SiBootstrap,
+            color: "text-purple-400",
             x: "45%",
             y: "85%",
             size: 40,

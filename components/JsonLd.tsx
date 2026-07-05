@@ -14,7 +14,7 @@ export function JsonLd() {
     jobTitle: "Backend Developer",
     worksFor: {
       "@type": "Organization",
-      name: "Brmja Tech",
+      name: "Beyonex IT",
     },
     address: {
       "@type": "PostalAddress",
@@ -30,11 +30,13 @@ export function JsonLd() {
       "PHP",
       "MySQL",
       "JavaScript",
-      "Python",
-      "Firebase",
+      "Node.js",
       "Livewire",
       "RESTful APIs",
       "Multi-Tenant Systems",
+      "SaaS Architecture",
+      "RBAC",
+      "HMVC",
       "Laravel Modules",
       "Database Design",
       "Backend Development",
@@ -57,7 +59,7 @@ export function JsonLd() {
         name: "Competitive",
         currency: "USD",
       },
-      skills: "Laravel, PHP, MySQL, JavaScript, Python, Firebase, RESTful APIs, Multi-Tenant Systems",
+      skills: "Laravel, PHP, MySQL, JavaScript, Node.js, RESTful APIs, Multi-Tenant SaaS, RBAC, HMVC",
     },
   };
 
@@ -67,7 +69,7 @@ export function JsonLd() {
     name: "Mohamed Magdy Elshafey - Backend Developer Portfolio",
     url: "https://mohamed-elshafey.vercel.app",
     description:
-      "Backend Developer Portfolio showcasing Laravel and PHP projects",
+      "Backend Developer Portfolio showcasing Laravel, Node.js, and SaaS projects",
     author: {
       "@type": "Person",
       name: personalInfo.name,
@@ -104,7 +106,7 @@ export function JsonLd() {
       "PHP Development",
       "API Development",
       "Database Design",
-      "Multi-Tenant Systems",
+      "Multi-Tenant SaaS Systems",
     ],
     areaServed: {
       "@type": "Place",

@@ -12,14 +12,14 @@ const ExperienceComponent = dynamic(
 export const metadata: Metadata = {
   title: "Experience - Professional Work History",
   description:
-    "Explore Mohamed Magdy Elshafey's professional experience as a Backend Developer. View detailed work history, accomplishments, and technical contributions in backend development.",
+    "Professional experience as a Backend Developer at Beyonex IT, Brmja Tech, and Websolla. Laravel, SaaS, and ERP development.",
   alternates: {
     canonical: "https://mohamed-elshafey.vercel.app/experience",
   },
   openGraph: {
     title: "Professional Experience - Mohamed Magdy Elshafey",
     description:
-      "Explore my professional journey and technical accomplishments as a Backend Developer specializing in Laravel.",
+      "Work history at Beyonex IT, Brmja Tech, and Websolla — Laravel APIs, multi-tenant SaaS, and ERP systems.",
     url: "https://mohamed-elshafey.vercel.app/experience",
     images: [
       {

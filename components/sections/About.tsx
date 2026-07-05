@@ -1,5 +1,5 @@
 "use client";
-import { personalInfo, skills, aboutContent } from "@/lib/data";
+import { personalInfo, skills, languages, aboutContent } from "@/lib/data";
 import { motion } from "framer-motion";
 import {
   SiHtml5,
@@ -21,8 +21,7 @@ import {
   SiLaravel,
   SiPhp,
   SiMysql,
-  SiPython,
-  SiFirebase,
+  SiNpm,
 } from "react-icons/si";
 import {
   Zap,
@@ -43,6 +42,7 @@ import {
   Sparkles,
   Rocket,
   Eye,
+  Languages,
 } from "lucide-react";
 
 const getSkillIcon = (skillName: string) => {
@@ -51,9 +51,13 @@ const getSkillIcon = (skillName: string) => {
   // Backend Tech Icons - Real Logos
   if (lower.includes("laravel")) return SiLaravel;
   if (lower.includes("php")) return SiPhp;
-  if (lower.includes("mysql")) return SiMysql;
-  if (lower.includes("python")) return SiPython;
-  if (lower.includes("firebase")) return SiFirebase;
+  if (lower.includes("mysql") || lower === "sql") return SiMysql;
+  if (lower.includes("livewire")) return SiLaravel;
+  if (lower.includes("jquery")) return SiJavascript;
+  if (lower.includes("blade")) return SiPhp;
+  if (lower.includes("composer")) return SiPhp;
+  if (lower.includes("npm")) return SiNpm;
+  if (lower.includes("cursor") || lower.includes("vs code")) return Code2;
   if (lower.includes("html")) return SiHtml5;
   if (lower.includes("css")) return SiCss3;
   if (lower.includes("javascript") && !lower.includes("type"))
@@ -79,7 +83,8 @@ const getSkillIcon = (skillName: string) => {
   if (lower.includes("oop") || lower.includes("object")) return Box;
   if (lower.includes("mvc")) return Layers;
   if (lower.includes("module")) return Layers;
-  if (lower.includes("multi-tenant")) return Database;
+  if (lower.includes("multi-tenant") || lower.includes("rbac")) return Database;
+  if (lower.includes("hmvc") || lower.includes("transaction")) return Layers;
   if (lower.includes("database") || lower.includes("sql")) return Database;
   if (lower.includes("performance") || lower.includes("optimization")) return Zap;
   if (lower.includes("clean code")) return Code2;
@@ -106,27 +111,27 @@ const getSkillIcon = (skillName: string) => {
 export function About() {
   const skillCategories = [
     {
-      title: "Programming & Database",
+      title: "Languages & Frameworks",
       icon: Code2,
-      desc: "Core programming languages and database technologies",
+      desc: "Core programming languages and frameworks",
       skills: skills.frontend,
     },
     {
-      title: "Concepts & Tools",
+      title: "Tools",
       icon: Layers,
-      desc: "Development principles, patterns, and tools",
+      desc: "Development tools and workflow utilities",
       skills: skills.tools,
     },
     {
-      title: "Backend Architecture",
+      title: "Concepts & Architecture",
       icon: Cpu,
-      desc: "Advanced backend concepts and architectures",
+      desc: "Backend architecture patterns and principles",
       skills: skills.cs,
     },
     {
-      title: "Professional Skills",
+      title: "Soft Skills",
       icon: UserCheck,
-      desc: "Soft skills & Personal attributes",
+      desc: "Professional and interpersonal skills",
       skills: skills.soft,
     },
   ];
@@ -260,6 +265,50 @@ export function About() {
                     </motion.div>
                   );
                 })}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Languages Section */}
+      <section>
+        <div className="text-center mb-12">
+          <h3 className="text-3xl md:text-4xl font-bold font-outfit text-white">
+            {aboutContent.languagesTitle.split(" ")[0]}{" "}
+            <span className="text-primary">
+              {aboutContent.languagesTitle.split(" ").slice(1).join(" ")}
+            </span>
+          </h3>
+          <p className="text-slate-400 mt-3 text-lg">
+            {aboutContent.languagesDesc}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          {languages.map((lang, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                delay: idx * 0.08,
+                duration: 0.35,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="flex items-center gap-4 p-6 rounded-2xl bg-[#252525] border border-white/10 hover:border-primary/30 transition-all duration-200"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <Languages className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-white font-outfit">
+                  {lang.name}
+                </h4>
+                <p className="text-slate-400 text-sm font-medium">
+                  {lang.level}
+                </p>
               </div>
             </motion.div>
           ))}

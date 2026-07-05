@@ -12,14 +12,14 @@ const ContactComponent = dynamic(
 export const metadata: Metadata = {
   title: "Contact Me - Get In Touch",
   description:
-    "Get in touch with Mohamed Magdy Elshafey for freelance projects, collaboration opportunities, or full-time positions. Available for Laravel and backend development work.",
+    "Get in touch with Mohamed Magdy Elshafey for full-time opportunities or backend consulting. Laravel, SaaS, and API development.",
   alternates: {
     canonical: "https://mohamed-elshafey.vercel.app/contact",
   },
   openGraph: {
     title: "Contact Mohamed Magdy Elshafey - Backend Developer",
     description:
-      "Ready to collaborate on your next project? Let's build something amazing together with Laravel and scalable backend solutions.",
+      "Open to full-time opportunities and backend consulting. Let's build scalable APIs and multi-tenant systems together.",
     url: "https://mohamed-elshafey.vercel.app/contact",
     images: [
       {

@@ -1,63 +1,67 @@
-import {} from "lucide-react";
-
 export const personalInfo = {
   name: "Mohamed Magdy Elshafey",
-  title: "Software Engineer - Backend Developer (Laravel)",
+  title: "Backend Developer | Laravel Specialist",
   email: "mahamedmagdy005@gmail.com",
   phone: "+201025329322",
   location: "Cairo, Egypt",
   github: "https://github.com/elshafey99",
   linkedin: "https://www.linkedin.com/in/mohamed-elshafey-a59188364",
-  about: `I'm a Junior Backend Laravel Developer with hands-on production experience in building enterprise-level applications. My expertise lies in developing secure RESTful APIs, implementing modular architectures, and designing scalable multi-tenant systems that serve multiple business clients efficiently.
+  about: `Experienced Backend Laravel Developer with over 2 years of hands-on experience building scalable and secure backend systems. Specialized in RESTful API development, multi-tenant SaaS architectures, and performance-driven database design.
 
-Throughout my career, I've worked extensively with Laravel Modules Architecture, enabling me to create maintainable and scalable codebases. I specialize in database design, performance optimization, and implementing clean code principles that ensure long-term project sustainability.
-
-What drives me is the challenge of solving complex technical problems and the satisfaction of seeing clean, efficient code in production. I'm committed to continuous learning, staying updated with the latest Laravel features, and contributing effectively in collaborative team environments where quality and innovation are valued.`,
+Adept at translating business requirements into clean, efficient, and maintainable code using Laravel best practices, SOLID principles, and proven design patterns. I focus on delivering production-ready solutions that balance technical excellence with real-world business needs.`,
 };
 
 export const skills = {
   frontend: [
     "PHP",
     "Laravel",
-    "MySQL",
-    "JavaScript",
-    "Python",
-    "Firebase",
+    "SQL",
     "Livewire",
+    "JavaScript",
+    "Bootstrap 5",
+    "jQuery",
     "HTML",
     "CSS",
+    "Blade Templates",
   ],
   tools: [
+    "Git & GitHub",
+    "Composer",
+    "NPM",
+    "Postman",
+    "VS Code",
+    "Cursor",
+  ],
+  cs: [
     "OOP",
     "SOLID Principles",
     "RESTful APIs",
+    "HMVC",
+    "Multi-Tenancy (SaaS)",
     "Design Patterns",
-    "Git",
-    "Bootstrap",
-  ],
-  cs: [
-    "Laravel Modules Architecture",
-    "Multi-Tenant Systems",
-    "Database Design",
-    "Performance Optimization",
-    "Clean Code Principles",
-    "MVC Architecture",
+    "RBAC",
+    "Database Transactions",
   ],
   soft: [
     "Problem-Solving",
     "Time Management",
     "Teamwork",
     "Adaptability",
-    "Continuous Learning",
-    "Quality Focus",
   ],
 };
 
+export const languages = [
+  { name: "Arabic", level: "Native" },
+  { name: "English", level: "Good" },
+];
+
 export const projects = [
   {
-    title: "Bayt-Link (In Progress)",
+    title: "Bayt-Link",
+    role: "Lead Backend Developer",
+    inProgress: true,
     description:
-      "Developed the backend for a full property-management system serving property owners and residents. Built modules for property structuring (buildings, floors, units), user roles, financial management (revenues, expenses, maintenance fees), online payments, voting on decisions, complaints, internal chat, technician directory, notifications, and subscription plans.",
+      "A comprehensive SaaS property management system serving owners and residents with RBAC, financial modules, and real-time features.",
     tech: [
       "Laravel 12",
       "MySQL",
@@ -69,12 +73,14 @@ export const projects = [
     demo: "#",
     image: "/projects/bayt-link.png",
     details:
-      "Developed the backend for a full property-management system serving property owners and residents. Built modules for property structuring (buildings, floors, units), user roles, financial management (revenues, expenses, maintenance fees), online payments, voting on decisions, complaints, internal chat, technician directory, notifications, and subscription plans. Implemented clean RESTful APIs, secure validations, and optimized database workflows.",
+      "Designed the core database structure for buildings, units, and complex tenant relationships. Implemented RBAC for granular permissions (Admins, Owners, Tenants). Built financial modules for rent collection and expense tracking using Database Transactions. Developed real-time features for complaints, online payments, voting on decisions, internal chat, technician directory, notifications, and subscription plans.",
   },
   {
-    title: "Faya ERP (In Progress)",
+    title: "Faya ERP",
+    role: "Backend Developer",
+    inProgress: true,
     description:
-      "Working on backend development for 'Faya ERP', a modular multi-tenant system for restaurants and cafés. Responsible for implementing new features using Laravel Modules Architecture, designing and improving database workflows, and integrating services between different business domains such as inventory and sales.",
+      "A modular multi-tenant ERP system tailored for restaurants and cafés with shared-database tenant isolation.",
     tech: [
       "Laravel 11",
       "MySQL",
@@ -86,12 +92,34 @@ export const projects = [
     demo: "https://test.tsc-group.org/",
     image: "/projects/faya-erp.jpg",
     details:
-      "Working on backend development for 'Faya ERP', a modular multi-tenant system for restaurants and cafés. Responsible for implementing new features using Laravel Modules Architecture, designing and improving database workflows, and integrating services between different business domains such as inventory and sales. Focused on performance optimization, clean code practices, and scalable solutions to support multiple tenants within a shared database environment.",
+      "Working on backend development for Faya ERP using Laravel Modules Architecture. Responsible for designing and improving database workflows and integrating services between business domains such as inventory and sales. Focused on performance optimization, clean code practices, and scalable solutions to support multiple tenants within a shared database environment.",
+  },
+  {
+    title: "Qeema ERP",
+    role: "Backend Developer (Node.js)",
+    inProgress: true,
+    description:
+      "A multi-tenant SaaS ERP system with JWT authentication, RBAC, and automated tenant onboarding.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "MySQL",
+      "JWT",
+      "RESTful APIs",
+      "Multi-Tenant SaaS",
+    ],
+    github: "https://github.com/elshafey99",
+    demo: "#",
+    image: "/projects/qeema-erp.png",
+    details:
+      "A multi-tenant SaaS ERP system designed to serve multiple business clients on a shared database with strict data isolation. Features secure JWT-based authentication, role-based access control, and automated tenant onboarding with Chart of Accounts initialization. Currently optimizing the system and designing ZATCA electronic invoicing integration.",
   },
   {
     title: "Online Pay Solution",
+    role: "Backend Developer",
+    inProgress: false,
     description:
-      "Developed a backend platform that serves as a secure intermediary between users and Fawry services. Users register through an API-based client system and submit verification documents, while admins review and approve accounts through an advanced dashboard.",
+      "A secure intermediary platform between users and Fawry services with API-based registration and admin verification.",
     tech: ["Laravel 11", "PHP 8.2", "MySQL", "Sanctum"],
     github: "https://github.com/elshafey99",
     demo: "https://onlinepaysolution.com/",
@@ -100,10 +128,50 @@ export const projects = [
       "Developed a backend platform that serves as a secure intermediary between users and Fawry services. Users register through an API-based client system and submit verification documents, while admins review and approve accounts through an advanced dashboard. The platform includes automated email notifications and multi-language support.",
   },
   {
-    title: "Customize CRM System",
+    title: "Darabny Science",
+    role: "Backend Developer",
+    inProgress: false,
     description:
-      "Developed an internal Laravel CRM with HMVC architecture. Features included client management, invoicing with email, contract control, user permissions, employee reporting, and attendance API integration.",
-    tech: ["Laravel", "HMVC", "MySQL"],
+      "Egypt's leading training aggregator — search, compare, and book professional training programs from trusted providers across Egypt.",
+    tech: [
+      "Laravel",
+      "MySQL",
+      "RESTful APIs",
+      "Payment Integration",
+      "Bootstrap",
+    ],
+    github: "https://github.com/elshafey99",
+    demo: "https://darabny-science.com/",
+    image: "/projects/darabny-science.png",
+    details:
+      "Contributed to backend development for Darabny, a training marketplace connecting students, training providers, and universities. Built APIs for program discovery, search and filtering, real-time seat availability, and booking workflows. Integrated payment gateways (Fawry, Paymob, e-wallets) with instant booking confirmation. Supported certificate management with QR verification and multi-role dashboards for students, providers, and university partners.",
+  },
+  {
+    title: "Dr. Ahmed Mashaly",
+    role: "Full-Stack Developer",
+    inProgress: false,
+    description:
+      "Professional bilingual website for an Oral & Maxillofacial Surgery consultant — services, cases, and appointment booking.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "GSAP",
+      "RESTful APIs",
+      "i18n",
+    ],
+    github: "https://github.com/elshafey99",
+    demo: "https://www.drahmedmashaly.com/en",
+    image: "/projects/dr-ahmed-mashaly.png",
+    details:
+      "Built a modern bilingual (English/Arabic) website for Dr. Ahmed Mashaly, an Oral & Maxillofacial Consultant specializing in orthognathic surgery, jaw reconstruction, and dental implants. Developed service showcases, before-and-after case galleries, clinic location pages, and appointment booking flows. Implemented smooth GSAP animations and a responsive, professional medical brand experience across Mansoura and Cairo clinics.",
+  },
+  {
+    title: "Custom CRM System",
+    role: "Backend Developer",
+    inProgress: false,
+    description:
+      "An internal CRM for managing client relationships, contracts, invoicing, and employee attendance.",
+    tech: ["Laravel 11", "HMVC", "MySQL"],
     github: "https://github.com/elshafey99",
     demo: "#",
     image: "/projects/crm-system.svg",
@@ -112,8 +180,10 @@ export const projects = [
   },
   {
     title: "Invoice System",
+    role: "Backend Developer",
+    inProgress: false,
     description:
-      "A Laravel-based system for managing invoices, with features for invoice creation, payments, and printing. Includes sections for departments, products, and user permissions.",
+      "A Laravel-based invoice management system with departments, products, payments, and user permissions.",
     tech: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com/elshafey99/invoice_system",
     demo: "#",
@@ -123,19 +193,23 @@ export const projects = [
   },
   {
     title: "LRG",
+    role: "Backend Developer",
+    inProgress: false,
     description:
-      "Worked on dynamic dashboard development and real-time data sync between backend and frontend.",
+      "Dynamic dashboard development with real-time data synchronization between backend and frontend.",
     tech: ["Laravel 10", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com/elshafey99",
     demo: "https://lrginvestmentsllc.com/en",
     image: "/projects/lrg.png",
     details:
-      "Worked on dynamic dashboard development and real-time data sync between backend and frontend.",
+      "Worked on dynamic dashboard development and real-time data sync between backend and frontend for an investment company platform.",
   },
   {
     title: "Bait-Elkhebra",
+    role: "Backend Developer",
+    inProgress: false,
     description:
-      "Developed and customized a dynamic Laravel-based dashboard with real-time data synchronization, ensuring a seamless connection between backend operations and front-end user experience.",
+      "Custom Laravel dashboard with real-time data synchronization for seamless backend-to-frontend operations.",
     tech: ["Laravel 10", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com/elshafey99",
     demo: "https://bait-elkhebra.com/en",
@@ -145,8 +219,10 @@ export const projects = [
   },
   {
     title: "Vertex",
+    role: "Backend Developer",
+    inProgress: false,
     description:
-      "Developed and customized a dynamic Laravel-based dashboard with real-time data synchronization, ensuring a seamless connection between backend operations and front-end user experience.",
+      "Laravel-based business dashboard with real-time data sync and admin panel customization.",
     tech: ["Laravel 10", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com/elshafey99",
     demo: "https://vertex-egy.com/en",
@@ -159,39 +235,35 @@ export const projects = [
 export const experience = [
   {
     role: "Backend Developer",
-    company: "Brmja Tech",
-    duration: "08/2025 – Present",
-    location: "Giza, Egypt",
+    company: "Beyonex IT",
+    duration: "02/2026 – Present",
+    location: "Riyadh, Saudi Arabia",
     points: [
-      "Built and integrated RESTful APIs using Laravel for production systems.",
-      "Developed dynamic admin dashboards and structured relational databases.",
-      "Worked with Laravel Modules Architecture to deliver scalable, maintainable features.",
-      "Implemented Multi-Tenant structures to support multiple business clients on shared systems.",
-      "Integrated Firebase services into backend operations.",
-      "Applied MVC principles, clean code practices, and Git workflow in team development.",
-      "Focused on performance optimization, debugging, and secure data handling.",
+      "Acted as the sole backend developer, managing infrastructure and database design across all projects.",
+      "Developed a comprehensive internal management system with seamless WhatsApp Business API integration.",
+      "Optimized the Qeema ERP system and currently designing its ZATCA electronic invoicing integration.",
     ],
   },
   {
-    role: "Web Developer",
+    role: "Backend Developer",
+    company: "Brmja Tech",
+    duration: "02/2025 – 02/2026",
+    location: "Giza, Egypt",
+    points: [
+      "Architected and developed scalable RESTful APIs for production systems using Laravel 11 & 12.",
+      "Implemented Multi-Tenant structures (SaaS) to support multiple business clients on a shared database, ensuring strict data isolation.",
+      "Utilized Laravel Modules architecture to decouple features and improve code maintainability.",
+      "Optimized database queries and API response times for high-traffic endpoints.",
+    ],
+  },
+  {
+    role: "Web Developer (Part-time)",
     company: "Websolla",
     duration: "06/2025 – 08/2025",
     location: "Cairo, Egypt",
     points: [
-      "Developed dynamic websites and admin dashboards using Laravel.",
-      "Converted UI designs into functional interfaces with backend logic.",
-      "Focused on clean code practices and smooth admin panel performance.",
-    ],
-  },
-  {
-    role: "Backend Developer (Intern)",
-    company: "Brmja Tech",
-    duration: "02/2025 – 06/2025",
-    location: "Giza, Egypt",
-    points: [
-      "Participated in API development for real-world applications.",
-      "Designed custom dashboard features and performed database structuring.",
-      "Debugged and enhanced Laravel-based systems in a team environment.",
+      "Developed dynamic admin dashboards and user interfaces using Laravel and Blade templates.",
+      "Refactored legacy code to adhere to clean code standards and improved admin panel performance.",
     ],
   },
 ];
@@ -223,7 +295,7 @@ export const navLinks = [
 export const heroContent = {
   intro: "Hi, I'm",
   description:
-    "Passionate Backend Developer specializing in Laravel, building scalable systems and clean APIs. Experienced in multi-tenant architectures, modular development, and delivering production-ready solutions.",
+    "Experienced Backend Developer specializing in Laravel and scalable SaaS architectures. I build secure RESTful APIs, multi-tenant systems, and performance-driven database solutions using SOLID principles and clean architecture.",
   btnProject: "View Work",
   btnContact: "Download CV",
 };
@@ -232,17 +304,16 @@ export const aboutContent = {
   badge: "About Me",
   titlePrefix: "I'm",
   highlights: [
-    { label: "Scalable", desc: "Building scalable multi-tenant systems" },
-    { label: "Clean Code", desc: "Clean code principles and best practices" },
-    { label: "Modular", desc: "Modular development with Laravel Modules" },
-    {
-      label: "Production-Ready",
-      desc: "Delivering production-ready solutions",
-    },
+    { label: "SaaS Architecture", desc: "Multi-tenant systems with strict data isolation" },
+    { label: "RESTful APIs", desc: "Secure, scalable API design and integration" },
+    { label: "Database Design", desc: "Performance-driven schema and query optimization" },
+    { label: "Clean Code", desc: "SOLID principles and proven design patterns" },
   ],
   skillsTitle: "Technical Expertise",
   skillsDesc:
     "A comprehensive overview of my technical skills and professional experience in backend development",
+  languagesTitle: "Languages",
+  languagesDesc: "Languages I speak and work in professionally",
 };
 
 export const experienceContent = {
@@ -256,7 +327,7 @@ export const experienceContent = {
 export const projectsContent = {
   badge: "My Projects",
   title: "Showcasing my latest work and creative solutions",
-  description: "Showcasing my latest work and creative solutions",
+  description: "Selected projects spanning SaaS platforms, ERP systems, and production APIs",
   btnDetails: "View Details",
   btnGithub: "GitHub",
   btnDemo: "Live Demo",
@@ -266,9 +337,9 @@ export const contactContent = {
   badge: "Get In Touch",
   title: "Contact Me",
   subtitle:
-    "I'm currently available for freelance work or full-time opportunities",
+    "Open to full-time opportunities and backend consulting projects",
   description:
-    "If you have a project that needs some backend magic, let's talk. I'm here to help you build scalable, secure, and efficient backend solutions.",
+    "Looking for a backend developer to build scalable APIs, multi-tenant systems, or ERP solutions? Let's discuss how I can help bring your project to production.",
   btnSend: "Send Message",
   formEmail: "Email Address",
   formMessage: "Your Message",

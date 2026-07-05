@@ -15,6 +15,8 @@ import Image from "next/image";
 // Define type based on data structure
 interface Project {
   title: string;
+  role?: string;
+  inProgress?: boolean;
   description: string;
   tech: string[];
   github: string;
@@ -86,6 +88,19 @@ function ProjectCard({
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+
+          <div className="absolute top-3 left-3 flex flex-wrap gap-2 z-10">
+            {project.inProgress && (
+              <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 border border-amber-400/20 rounded-full backdrop-blur-md">
+                In Progress
+              </span>
+            )}
+            {project.role && (
+              <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded-full backdrop-blur-md">
+                {project.role}
+              </span>
+            )}
+          </div>
 
           <div className="absolute top-3 right-3 flex gap-2 translate-z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
             <div className="p-2.5 bg-primary text-slate-900 rounded-full backdrop-blur-md">
@@ -199,6 +214,18 @@ export function Projects() {
                   {/* Bottom Content Section - 55% Height */}
                   <div className="flex-1 p-6 md:p-8 overflow-y-auto bg-card flex flex-col">
                     <div className="mb-4">
+                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                        {selectedProject.inProgress && (
+                          <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 border border-amber-400/20 rounded-full">
+                            In Progress
+                          </span>
+                        )}
+                        {selectedProject.role && (
+                          <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded-full">
+                            {selectedProject.role}
+                          </span>
+                        )}
+                      </div>
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="text-2xl md:text-4xl font-bold font-outfit text-white">
                           {selectedProject.title}
