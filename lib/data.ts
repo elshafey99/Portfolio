@@ -6,7 +6,7 @@ export const personalInfo = {
   location: "Cairo, Egypt",
   github: "https://github.com/elshafey99",
   linkedin: "https://www.linkedin.com/in/mohamed-elshafey-a59188364",
-  about: `Experienced Backend Laravel Developer with over 2 years of hands-on experience building scalable and secure backend systems. Specialized in RESTful API development, multi-tenant SaaS architectures, and performance-driven database design.
+  about: `Experienced Backend Laravel Developer with over 3 years of hands-on experience building scalable and secure backend systems. Specialized in RESTful API development, multi-tenant SaaS architectures, and performance-driven database design.
 
 Adept at translating business requirements into clean, efficient, and maintainable code using Laravel best practices, SOLID principles, and proven design patterns. I focus on delivering production-ready solutions that balance technical excellence with real-world business needs.`,
 };
