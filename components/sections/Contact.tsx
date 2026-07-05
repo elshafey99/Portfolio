@@ -10,6 +10,7 @@ import {
   Loader2,
   CheckCircle2,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Contact() {
   const [submitting, setSubmitting] = useState(false);
@@ -131,6 +132,25 @@ export function Contact() {
                   className="text-lg font-semibold text-white hover:text-primary transition-colors break-all"
                 >
                   {personalInfo.email}
+                </a>
+              </div>
+            </div>
+
+            <div className="group flex items-center gap-6 p-6 rounded-2xl bg-[#1f1f1f] border border-white/5 hover:border-primary/20 transition-all duration-200">
+              <div className="w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <FaWhatsapp className="w-6 h-6" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h4 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-1">
+                  WhatsApp
+                </h4>
+                <a
+                  href={`https://wa.me/${personalInfo.phone.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-semibold text-white hover:text-primary transition-colors"
+                >
+                  {personalInfo.phone}
                 </a>
               </div>
             </div>
