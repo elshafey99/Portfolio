@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, FormEvent } from "react";
 import { personalInfo, contactContent } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -10,36 +10,60 @@ import {
   Loader2,
   CheckCircle2,
 } from "lucide-react";
-import { useForm, ValidationError } from "@formspree/react";
 
 export function Contact() {
-  const [state, handleSubmit, reset] = useForm("xzznowgq");
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (state.succeeded) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setShowSuccess(true);
-
-      // Clear form inputs immediately
-      if (formRef.current) {
-        formRef.current.reset();
-      }
-
+    if (succeeded) {
       const timer = setTimeout(() => {
-        setShowSuccess(false);
-        reset();
+        setSucceeded(false);
       }, 2000);
       return () => clearTimeout(timer);
     }
-  }, [state.succeeded, reset]);
+  }, [succeeded]);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setError(null);
+    setSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, message }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Failed to send message.");
+      }
+
+      formRef.current?.reset();
+      setSucceeded(true);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to send message."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="container mx-auto px-4 relative">
       {/* Toast Notification - Mobile Only */}
       <AnimatePresence>
-        {showSuccess && (
+        {succeeded && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -151,12 +175,6 @@ export function Contact() {
                   className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-1 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-400"
                   placeholder="name@example.com"
                 />
-                <ValidationError
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1"
-                />
               </div>
 
               <div>
@@ -170,24 +188,25 @@ export function Contact() {
                   id="message"
                   name="message"
                   required
+                  minLength={10}
                   rows={5}
                   className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-1 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-400 resize-none"
                   placeholder="Tell me about your project..."
                 />
-                <ValidationError
-                  prefix="Message"
-                  field="message"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1"
-                />
               </div>
+
+              {error && (
+                <p className="text-red-400 text-sm" role="alert">
+                  {error}
+                </p>
+              )}
 
               <button
                 type="submit"
-                disabled={state.submitting}
+                disabled={submitting}
                 className="w-full py-4 rounded-xl bg-gradient-to-r from-primary via-primary/95 to-primary/85 hover:from-primary/90 hover:via-primary/85 hover:to-primary/80 text-slate-900 font-bold text-lg hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
               >
-                {state.submitting ? (
+                {submitting ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
                     Sending...
@@ -204,7 +223,7 @@ export function Contact() {
 
           {/* Success Message */}
           <AnimatePresence>
-            {showSuccess && (
+            {succeeded && (
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
