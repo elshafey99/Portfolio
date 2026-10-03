@@ -22,6 +22,15 @@ import {
   SiPhp,
   SiMysql,
   SiNpm,
+  SiFirebase,
+  SiStripe,
+  SiExpress,
+  SiGithubactions,
+  SiJsonwebtokens,
+  SiWhatsapp,
+  SiGoogle,
+  SiLivewire,
+  SiComposer,
 } from "react-icons/si";
 import {
   Zap,
@@ -43,19 +52,37 @@ import {
   Rocket,
   Eye,
   Languages,
+  FlaskConical,
+  CreditCard,
+  Plug,
 } from "lucide-react";
 
 const getSkillIcon = (skillName: string) => {
   const lower = skillName.toLowerCase();
 
   // Backend Tech Icons - Real Logos
+  if (lower.includes("pest") || lower.includes("testing")) return FlaskConical;
+  if (lower.includes("whatsapp")) return SiWhatsapp;
+  if (lower.includes("firebase")) return SiFirebase;
+  if (lower.includes("stripe")) return SiStripe;
+  if (
+    lower.includes("paymob") ||
+    lower.includes("hyperpay") ||
+    lower.includes("dineropay")
+  )
+    return CreditCard;
+  if (lower.includes("google") || lower.includes("sign-in")) return SiGoogle;
+  if (lower.includes("github actions")) return SiGithubactions;
+  if (lower.includes("express")) return SiExpress;
+  if (lower === "jwt") return SiJsonwebtokens;
+  if (lower.includes("livewire")) return SiLivewire;
   if (lower.includes("laravel")) return SiLaravel;
   if (lower.includes("php")) return SiPhp;
   if (lower.includes("mysql") || lower === "sql") return SiMysql;
-  if (lower.includes("livewire")) return SiLaravel;
   if (lower.includes("jquery")) return SiJavascript;
   if (lower.includes("blade")) return SiPhp;
-  if (lower.includes("composer")) return SiPhp;
+  if (lower.includes("composer")) return SiComposer;
+  if (lower.includes("apidog")) return Plug;
   if (lower.includes("npm")) return SiNpm;
   if (lower.includes("cursor") || lower.includes("vs code")) return Code2;
   if (lower.includes("html")) return SiHtml5;
@@ -80,6 +107,7 @@ const getSkillIcon = (skillName: string) => {
   if (lower.includes("restful") || lower.includes("api")) return Code2;
   if (lower.includes("solid")) return Layers;
   if (lower.includes("pattern")) return Layers;
+  if (lower.includes("state machine")) return Workflow;
   if (lower.includes("oop") || lower.includes("object")) return Box;
   if (lower.includes("mvc")) return Layers;
   if (lower.includes("module")) return Layers;
@@ -111,22 +139,28 @@ const getSkillIcon = (skillName: string) => {
 export function About() {
   const skillCategories = [
     {
-      title: "Languages & Frameworks",
+      title: "Backend & APIs",
       icon: Code2,
-      desc: "Core programming languages and frameworks",
-      skills: skills.frontend,
+      desc: "Languages, frameworks, and API technologies",
+      skills: skills.backend,
     },
     {
-      title: "Tools",
-      icon: Layers,
-      desc: "Development tools and workflow utilities",
-      skills: skills.tools,
+      title: "Database & Testing",
+      icon: Database,
+      desc: "Data modeling, performance, and automated testing",
+      skills: skills.database,
     },
     {
-      title: "Concepts & Architecture",
+      title: "Architecture",
       icon: Cpu,
       desc: "Backend architecture patterns and principles",
-      skills: skills.cs,
+      skills: skills.architecture,
+    },
+    {
+      title: "Integrations & Tools",
+      icon: Layers,
+      desc: "Payment gateways, third-party services, and dev tooling",
+      skills: skills.integrations,
     },
     {
       title: "Soft Skills",

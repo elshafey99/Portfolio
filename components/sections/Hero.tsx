@@ -156,7 +156,7 @@ export function Hero() {
             </Link>
 
             <a
-              href="/Mohamed-Magdy-Elshafey-Backend.pdf"
+              href="/Mohamed_Magdy_Elshafey.pdf"
               download
               className="group w-full sm:w-auto px-8 py-4 bg-[#1f1f1f] text-primary font-bold rounded-xl border border-white/10 hover:bg-primary/10 hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
             >

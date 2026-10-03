@@ -6,41 +6,57 @@ export const personalInfo = {
   location: "Cairo, Egypt",
   github: "https://github.com/elshafey99",
   linkedin: "https://www.linkedin.com/in/mohamed-elshafey-a59188364",
-  about: `Experienced Backend Laravel Developer with over 3 years of hands-on experience building scalable and secure backend systems. Specialized in RESTful API development, multi-tenant SaaS architectures, and performance-driven database design.
+  about: `Backend Developer with 2+ years of experience building production Laravel APIs for SaaS, ERP, healthcare, e-learning and booking platforms. Sole backend owner for multiple products at a Saudi software company and co-founder of CodeLine Tech.
 
-Adept at translating business requirements into clean, efficient, and maintainable code using Laravel best practices, SOLID principles, and proven design patterns. I focus on delivering production-ready solutions that balance technical excellence with real-world business needs.`,
+Experienced in multi-tenant architecture, RBAC, payment gateway integrations (Paymob, Dineropay), WhatsApp Business API, bilingual Arabic/English APIs and automated testing with Pest. Currently working on ZATCA e-invoicing integration.`,
 };
 
 export const skills = {
-  frontend: [
-    "PHP",
-    "Laravel",
-    "SQL",
-    "Livewire",
-    "JavaScript",
-    "Bootstrap 5",
-    "jQuery",
-    "HTML",
-    "CSS",
-    "Blade Templates",
-  ],
-  tools: [
-    "Git & GitHub",
-    "Composer",
-    "NPM",
-    "Postman",
-    "VS Code",
-    "Cursor",
-  ],
-  cs: [
-    "OOP",
-    "SOLID Principles",
+  backend: [
+    "PHP 8.4",
+    "Laravel 11/12/13",
+    "Node.js",
+    "Express.js",
     "RESTful APIs",
+    "Laravel Sanctum",
+    "JWT",
+    "Laravel Reverb (WebSockets)",
+    "Livewire",
+    "Blade",
+  ],
+  database: [
+    "MySQL",
+    "Database Design",
+    "Query Optimization",
+    "Transactions",
+    "Pest PHP",
+    "Feature Testing",
+  ],
+  architecture: [
+    "OOP",
+    "SOLID",
+    "Strategy Pattern",
+    "Adapter Pattern",
+    "State Machine",
+    "Service Layer",
+    "Clean Architecture",
     "HMVC",
-    "Multi-Tenancy (SaaS)",
-    "Design Patterns",
+    "Laravel Modules",
+    "Multi-Tenant SaaS",
     "RBAC",
-    "Database Transactions",
+  ],
+  integrations: [
+    "Paymob",
+    "HyperPay",
+    "Stripe",
+    "WhatsApp Business API",
+    "Firebase (FCM, Auth)",
+    "Google/Apple Sign-In",
+    "Git",
+    "GitHub Actions CI",
+    "Postman",
+    "Apidog",
+    "Composer",
   ],
   soft: [
     "Problem-Solving",
@@ -52,16 +68,38 @@ export const skills = {
 
 export const languages = [
   { name: "Arabic", level: "Native" },
-  { name: "English", level: "Good" },
+  { name: "English", level: "Professional Working Proficiency" },
 ];
 
 export const projects = [
   {
+    title: "Darabny",
+    role: "Backend Developer",
+    inProgress: false,
+    description:
+      "A training marketplace platform with 460+ REST API endpoints across 5 portals for students, training providers, instructors, universities, and admins.",
+    tech: [
+      "Laravel 13",
+      "PHP 8.4",
+      "MySQL",
+      "Sanctum",
+      "Paymob",
+      "Stripe",
+      "Firebase",
+      "Pest",
+    ],
+    github: "https://github.com/elshafey99",
+    demo: "https://darabny-science.com/",
+    image: "/projects/darabny-science.png",
+    details:
+      "Built 460+ REST API endpoints across 5 portals on Laravel 13. Implemented bookings, Paymob card/wallet payments, manual payment flows, refunds, provider payouts, and invoice generation. Delivered QR-verifiable certificates, attendance tracking, Firebase auth & push notifications, and a Scholars subscription module. Maintained 100+ Pest feature test files running on GitHub Actions CI.",
+  },
+  {
     title: "Bayt-Link",
     role: "Lead Backend Developer",
-    inProgress: true,
+    inProgress: false,
     description:
-      "A comprehensive SaaS property management system serving owners and residents with RBAC, financial modules, and real-time features.",
+      "A SaaS property management system for buildings, units, owners, and tenants with RBAC and transaction-safe financial workflows.",
     tech: [
       "Laravel 12",
       "MySQL",
@@ -73,12 +111,58 @@ export const projects = [
     demo: "#",
     image: "/projects/bayt-link.png",
     details:
-      "Designed the core database structure for buildings, units, and complex tenant relationships. Implemented RBAC for granular permissions (Admins, Owners, Tenants). Built financial modules for rent collection and expense tracking using Database Transactions. Developed real-time features for complaints, online payments, voting on decisions, internal chat, technician directory, notifications, and subscription plans.",
+      "Designed the database architecture for buildings, units, owners, and tenant relationships. Implemented RBAC and transaction-safe financial workflows for rent collection and expenses. Developed complaints, online payments, voting, chat, notifications, and subscription modules.",
+  },
+  {
+    title: "Beyonex Workflow",
+    role: "Sole Backend Developer",
+    inProgress: false,
+    description:
+      "An internal multi-company business management platform for HR, CRM, projects/tasks, ticketing, and meetings.",
+    tech: [
+      "Laravel 12",
+      "MySQL",
+      "Sanctum",
+      "Reverb",
+      "WhatsApp Business API",
+      "Pest",
+    ],
+    github: "https://github.com/elshafey99",
+    demo: "#",
+    image: "/projects/beyonex-workflow.svg",
+    details:
+      "Architected a multi-company platform for HR, CRM, projects/tasks, ticketing, and meetings with company/branch-scoped data isolation and RBAC. Built the CRM pipeline (quotations → contracts → invoices → payments) and a customer portal. Implemented QR attendance with leave approvals, real-time chat with Laravel Reverb, and WhatsApp Business API customer conversations.",
+  },
+  {
+    title: "Gaia Spa",
+    role: "Sole Backend Developer",
+    inProgress: false,
+    description:
+      "An at-home spa booking platform with therapist scheduling, loyalty programs, and a pluggable payment layer.",
+    tech: ["Laravel 13", "MySQL", "Sanctum", "Firebase", "Pest"],
+    github: "https://github.com/elshafey99",
+    demo: "#",
+    image: "/projects/gaia-spa.svg",
+    details:
+      "Built a booking engine with therapist schedules, leave management, service areas, and distance-based travel fees. Implemented membership tiers, packages, session credits, gift cards, vouchers, coupons, and referral rewards. Designed a pluggable payment gateway layer (Strategy pattern) supporting card, bank transfer, and cash, plus Google/Apple Sign-In and FCM push notifications.",
+  },
+  {
+    title: "Elagy Care",
+    role: "Sole Backend Developer",
+    inProgress: true,
+    description:
+      "A multi-sided e-pharmacy and prescription platform serving patients, doctors, pharmacists, pharmacies, delivery drivers, and admins.",
+    tech: ["Laravel 13", "PHP 8.5", "MySQL", "Sanctum", "Firebase", "Pest"],
+    github: "https://github.com/elshafey99",
+    demo: "#",
+    image: "/projects/elagy-care.svg",
+    details:
+      "Designed an order state machine with automatic routing to nearby pharmacy branches, stock reservation, drug substitution rules, and pickup/delivery verification. Integrated HyperPay payments with refunds and cash-on-delivery collection, pharmacy settlements, and pluggable delivery providers (Adapter pattern). Secured medical data with MFA/OTP, audit trails, consent management, and RBAC, covered by security, privacy, and end-to-end feature tests.",
   },
   {
     title: "Faya ERP",
     role: "Backend Developer",
-    inProgress: true,
+    inProgress: false,
     description:
       "A modular multi-tenant ERP system tailored for restaurants and cafés with shared-database tenant isolation.",
     tech: [
@@ -126,25 +210,6 @@ export const projects = [
     image: "/projects/online-pay.png",
     details:
       "Developed a backend platform that serves as a secure intermediary between users and Fawry services. Users register through an API-based client system and submit verification documents, while admins review and approve accounts through an advanced dashboard. The platform includes automated email notifications and multi-language support.",
-  },
-  {
-    title: "Darabny Science",
-    role: "Backend Developer",
-    inProgress: false,
-    description:
-      "Egypt's leading training aggregator — search, compare, and book professional training programs from trusted providers across Egypt.",
-    tech: [
-      "Laravel",
-      "MySQL",
-      "RESTful APIs",
-      "Payment Integration",
-      "Bootstrap",
-    ],
-    github: "https://github.com/elshafey99",
-    demo: "https://darabny-science.com/",
-    image: "/projects/darabny-science.png",
-    details:
-      "Contributed to backend development for Darabny, a training marketplace connecting students, training providers, and universities. Built APIs for program discovery, search and filtering, real-time seat availability, and booking workflows. Integrated payment gateways (Fawry, Paymob, e-wallets) with instant booking confirmation. Supported certificate management with QR verification and multi-role dashboards for students, providers, and university partners.",
   },
   {
     title: "Dr. Ahmed Mashaly",
@@ -237,23 +302,24 @@ export const experience = [
     role: "Backend Developer",
     company: "Beyonex IT",
     duration: "02/2026 – Present",
-    location: "Riyadh, Saudi Arabia",
+    location: "Riyadh, Saudi Arabia (Remote)",
     points: [
-      "Acted as the sole backend developer, managing infrastructure and database design across all projects.",
-      "Developed a comprehensive internal management system with seamless WhatsApp Business API integration.",
-      "Optimized the Qeema ERP system and currently designing its ZATCA electronic invoicing integration.",
+      "Sole backend developer for the company, owning architecture, database design and API delivery across 7+ internal and client products in HR, healthcare, wellness, legal and recruitment domains.",
+      "Built Beyonex Workflow (internal HR/CRM platform), Gaia Spa (booking platform) and Elagy Care (e-pharmacy platform) end-to-end.",
+      "Integrated WhatsApp Business API, Dineropay, Firebase and Google/Apple Sign-In across products.",
     ],
   },
   {
     role: "Backend Developer",
     company: "Brmja Tech",
-    duration: "02/2025 – 02/2026",
-    location: "Giza, Egypt",
+    duration: "10/2024 – 2026",
+    location: "Giza, Egypt (Onsite)",
     points: [
-      "Architected and developed scalable RESTful APIs for production systems using Laravel 11 & 12.",
-      "Implemented Multi-Tenant structures (SaaS) to support multiple business clients on a shared database, ensuring strict data isolation.",
-      "Utilized Laravel Modules architecture to decouple features and improve code maintainability.",
-      "Optimized database queries and API response times for high-traffic endpoints.",
+      "Developed scalable RESTful APIs using Laravel 11/12.",
+      "Led the backend of Bayt-Link, a SaaS property management system.",
+      "Built Faya ERP, a modular multi-tenant ERP for restaurants & cafés, implementing inventory and sales workflows with Laravel Modules.",
+      "Developed an internal CRM using HMVC architecture: clients, contracts, invoicing with email, permissions and attendance API integration.",
+      "Optimized database queries and API performance for high-traffic endpoints.",
     ],
   },
   {
@@ -262,8 +328,8 @@ export const experience = [
     duration: "06/2025 – 08/2025",
     location: "Cairo, Egypt",
     points: [
-      "Developed dynamic admin dashboards and user interfaces using Laravel and Blade templates.",
-      "Refactored legacy code to adhere to clean code standards and improved admin panel performance.",
+      "Developed dynamic admin dashboards using Laravel and Blade.",
+      "Refactored legacy code and improved admin panel performance.",
     ],
   },
 ];
@@ -295,7 +361,7 @@ export const navLinks = [
 export const heroContent = {
   intro: "Hi, I'm",
   description:
-    "Experienced Backend Developer specializing in Laravel and scalable SaaS architectures. I build secure RESTful APIs, multi-tenant systems, and performance-driven database solutions using SOLID principles and clean architecture.",
+    "Backend Developer with 2+ years building production Laravel APIs for SaaS, ERP, healthcare, e-learning and booking platforms. I specialize in multi-tenant architecture, RBAC, payment integrations, and automated testing with Pest.",
   btnProject: "View Work",
   btnContact: "Download CV",
 };
@@ -327,7 +393,7 @@ export const experienceContent = {
 export const projectsContent = {
   badge: "My Projects",
   title: "Showcasing my latest work and creative solutions",
-  description: "Selected projects spanning SaaS platforms, ERP systems, and production APIs",
+  description: "Selected projects spanning SaaS, ERP, healthcare, e-learning, and booking platforms",
   btnDetails: "View Details",
   btnGithub: "GitHub",
   btnDemo: "Live Demo",

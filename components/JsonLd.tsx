@@ -42,6 +42,13 @@ export function JsonLd() {
       "Backend Development",
       "API Development",
       "Clean Architecture",
+      "Laravel Sanctum",
+      "Laravel Reverb",
+      "Pest PHP",
+      "Payment Gateway Integration",
+      "WhatsApp Business API",
+      "Firebase",
+      "ZATCA E-Invoicing",
     ],
     alumniOf: {
       "@type": "CollegeOrUniversity",
@@ -59,7 +66,7 @@ export function JsonLd() {
         name: "Competitive",
         currency: "USD",
       },
-      skills: "Laravel, PHP, MySQL, JavaScript, Node.js, RESTful APIs, Multi-Tenant SaaS, RBAC, HMVC",
+      skills: "Laravel, PHP, MySQL, Node.js, RESTful APIs, Multi-Tenant SaaS, RBAC, HMVC, Pest, Payment Gateway Integration",
     },
   };
 
