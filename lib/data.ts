@@ -160,6 +160,19 @@ export const projects = [
       "Designed an order state machine with automatic routing to nearby pharmacy branches, stock reservation, drug substitution rules, and pickup/delivery verification. Integrated HyperPay payments with refunds and cash-on-delivery collection, pharmacy settlements, and pluggable delivery providers (Adapter pattern). Secured medical data with MFA/OTP, audit trails, consent management, and RBAC, covered by security, privacy, and end-to-end feature tests.",
   },
   {
+    title: "Nash Menu",
+    role: "Backend Developer",
+    inProgress: false,
+    description:
+      "A bilingual online menu and ordering platform for a Nashville chicken restaurant, managed through an admin dashboard.",
+    tech: ["Laravel", "PHP 8.4", "RESTful APIs", "React", "i18n (AR/EN)"],
+    github: "https://github.com/elshafey99",
+    demo: "https://nash-menu.codelinetech.com/",
+    image: "/projects/nash-menu.png",
+    details:
+      "Built an online menu and ordering platform for Nash, delivered through CodeLine Tech. Customers browse and search the menu, add items to a cart, and check out via delivery, pickup, or dine-in with table verification, with orders also sent through WhatsApp. An admin dashboard manages the menu, orders, and restaurant settings such as delivery fees, free-delivery thresholds, minimum order amount, and tax, all served by bilingual Arabic/English REST APIs.",
+  },
+  {
     title: "Faya ERP",
     role: "Backend Developer",
     inProgress: false,
