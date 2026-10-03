@@ -129,7 +129,7 @@ export const projects = [
     ],
     github: "https://github.com/elshafey99",
     demo: "#",
-    image: "/projects/beyonex-workflow.svg",
+    image: "/projects/beyonex-workflow.png",
     details:
       "Architected a multi-company platform for HR, CRM, projects/tasks, ticketing, and meetings with company/branch-scoped data isolation and RBAC. Built the CRM pipeline (quotations → contracts → invoices → payments) and a customer portal. Implemented QR attendance with leave approvals, real-time chat with Laravel Reverb, and WhatsApp Business API customer conversations.",
   },
@@ -142,7 +142,7 @@ export const projects = [
     tech: ["Laravel 13", "MySQL", "Sanctum", "Firebase", "Pest"],
     github: "https://github.com/elshafey99",
     demo: "#",
-    image: "/projects/gaia-spa.svg",
+    image: "/projects/gaia-spa.png",
     details:
       "Built a booking engine with therapist schedules, leave management, service areas, and distance-based travel fees. Implemented membership tiers, packages, session credits, gift cards, vouchers, coupons, and referral rewards. Designed a pluggable payment gateway layer (Strategy pattern) supporting card, bank transfer, and cash, plus Google/Apple Sign-In and FCM push notifications.",
   },
@@ -155,7 +155,7 @@ export const projects = [
     tech: ["Laravel 13", "PHP 8.5", "MySQL", "Sanctum", "Firebase", "Pest"],
     github: "https://github.com/elshafey99",
     demo: "#",
-    image: "/projects/elagy-care.svg",
+    image: "/projects/elagy-care.png",
     details:
       "Designed an order state machine with automatic routing to nearby pharmacy branches, stock reservation, drug substitution rules, and pickup/delivery verification. Integrated HyperPay payments with refunds and cash-on-delivery collection, pharmacy settlements, and pluggable delivery providers (Adapter pattern). Secured medical data with MFA/OTP, audit trails, consent management, and RBAC, covered by security, privacy, and end-to-end feature tests.",
   },
