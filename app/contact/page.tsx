@@ -1,9 +1,12 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { PageWrapper } from "@/components/PageWrapper";
+import { Contact } from "@/components/sections/Contact";
 
 export const metadata: Metadata = {
-  title: "Contact Mohamed Magdy Elshafey — Hire a Laravel Backend Developer",
+  title: {
+    absolute:
+      "Contact Mohamed Magdy Elshafey — Hire a Laravel Backend Developer",
+  },
   description:
     "Get in touch with Mohamed Magdy Elshafey — Backend Developer available for full-time positions and consulting worldwide. Reach him at mahamedmagdy005@gmail.com or WhatsApp +201025329322. Specializes in Laravel, PHP, SaaS, ERP, and payment integrations.",
   alternates: {
@@ -25,18 +28,10 @@ export const metadata: Metadata = {
   },
 };
 
-const ContactComponent = dynamic(
-  () =>
-    import("@/components/sections/Contact").then((m) => ({
-      default: m.Contact,
-    })),
-  { ssr: true }
-);
-
 export default function ContactPage() {
   return (
-    <PageWrapper backgroundVariant="contact">
-      <ContactComponent />
+    <PageWrapper>
+      <Contact />
     </PageWrapper>
   );
 }

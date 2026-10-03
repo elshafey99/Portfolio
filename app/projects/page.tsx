@@ -1,9 +1,11 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { PageWrapper } from "@/components/PageWrapper";
+import { Projects } from "@/components/sections/Projects";
 
 export const metadata: Metadata = {
-  title: "Projects — Mohamed Magdy Elshafey | Backend Developer Portfolio",
+  title: {
+    absolute: "Projects — Mohamed Magdy Elshafey | Backend Developer Portfolio",
+  },
   description:
     "Backend projects by Mohamed Magdy Elshafey: Darabny (training marketplace, 460+ API endpoints, Laravel 13), Bayt-Link (SaaS property management), Beyonex Workflow (HR/CRM platform), Gaia Spa (booking platform), Elagy Care (e-pharmacy), Nash Menu (online ordering), Faya ERP (restaurant ERP).",
   alternates: {
@@ -25,18 +27,10 @@ export const metadata: Metadata = {
   },
 };
 
-const ProjectsComponent = dynamic(
-  () =>
-    import("@/components/sections/Projects").then((m) => ({
-      default: m.Projects,
-    })),
-  { ssr: true }
-);
-
 export default function ProjectsPage() {
   return (
-    <PageWrapper backgroundVariant="projects">
-      <ProjectsComponent />
+    <PageWrapper>
+      <Projects />
     </PageWrapper>
   );
 }

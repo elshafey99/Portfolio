@@ -1,5 +1,6 @@
 export const personalInfo = {
   name: "Mohamed Magdy Elshafey",
+  shortName: "Mohamed Elshafey",
   title: "Backend Developer | Laravel Specialist",
   email: "mahamedmagdy005@gmail.com",
   phone: "+201025329322",
@@ -361,16 +362,6 @@ export const certifications = [
   "Building Web Applications using PHP & MYSQL - Mahara tech (Dec 2024 - Jan 2025)",
 ];
 
-export const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Experience", href: "/experience" },
-  { name: "Education", href: "/education" },
-  { name: "Skills", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
-];
-
 export const heroContent = {
   availability: "Available for new opportunities",
   description:
@@ -388,7 +379,18 @@ export const heroContent = {
 
 export const aboutContent = {
   badge: "About Me",
-  titlePrefix: "I'm",
+  title: "Backend engineer focused on",
+  titleAccent: "systems that scale",
+  factsTitle: "Quick Facts",
+  facts: [
+    { label: "Based in", value: "Cairo, Egypt" },
+    { label: "Experience", value: "2+ years in production" },
+    { label: "Currently", value: "Backend Developer @ Beyonex IT" },
+    { label: "Co-founder", value: "CodeLine Tech" },
+    { label: "Education", value: "B.Sc. Computer Science" },
+    { label: "Work mode", value: "Remote · Onsite · Hybrid" },
+  ],
+  highlightsTitle: "What I Focus On",
   highlights: [
     { label: "SaaS Architecture", desc: "Multi-tenant systems with strict data isolation" },
     { label: "RESTful APIs", desc: "Secure, scalable API design and integration" },
@@ -397,38 +399,65 @@ export const aboutContent = {
   ],
   skillsTitle: "Technical Expertise",
   skillsDesc:
-    "A comprehensive overview of my technical skills and professional experience in backend development",
+    "The languages, frameworks, patterns and tools I use to ship production backends.",
   languagesTitle: "Languages",
-  languagesDesc: "Languages I speak and work in professionally",
 };
 
 export const experienceContent = {
-  badge: "Experience & Education",
-  title: "My Journey",
-  workTitle: "Experience",
+  badge: "Experience",
+  title: "Where I've",
+  titleAccent: "built and shipped",
+  description:
+    "From sole backend ownership at a Saudi software company to leading SaaS and ERP backends — here's the work behind the code.",
+  workTitle: "Work Experience",
   educationTitle: "Education",
   achievementsTitle: "Certifications",
+  educationSectionTitle: "Education & Certifications",
+};
+
+export const educationContent = {
+  badge: "Education",
+  title: "Academic",
+  titleAccent: "background",
+  description:
+    "The computer science foundation behind my backend work — plus the courses I've completed along the way.",
 };
 
 export const projectsContent = {
-  badge: "My Projects",
-  title: "Showcasing my latest work and creative solutions",
-  description: "Selected projects spanning SaaS, ERP, healthcare, e-learning, and booking platforms",
+  badge: "Projects",
+  title: "Selected",
+  titleAccent: "work",
+  description:
+    "Production systems across SaaS, ERP, healthcare, e-learning and booking — most of them owned end-to-end on the backend.",
   btnDetails: "View Details",
-  btnGithub: "GitHub",
+  btnGithub: "Source Code",
   btnDemo: "Live Demo",
+  inProgress: "In Progress",
+  techTitle: "Tech Stack",
 };
 
 export const contactContent = {
-  badge: "Get In Touch",
-  title: "Contact Me",
+  badge: "Contact",
+  title: "Let's build something",
+  titleAccent: "great together",
   subtitle:
     "Open to full-time opportunities and backend consulting projects",
   description:
     "Looking for a backend developer to build scalable APIs, multi-tenant systems, or ERP solutions? Let's discuss how I can help bring your project to production.",
+  formTitle: "Send a message",
   btnSend: "Send Message",
-  formEmail: "Email Address",
-  formMessage: "Your Message",
-  successTitle: "Message Sent!",
-  successDesc: "Thanks for reaching out! I'll get back to you soon.",
+  formEmail: "Email address",
+  formMessage: "Message",
+  successTitle: "Message sent!",
+  successDesc: "Thanks for reaching out — I'll get back to you soon.",
 };
+
+export const ctaContent = {
+  title: "Have a project in mind?",
+  description:
+    "I'm open to full-time roles and backend consulting. Tell me what you're building and let's see how I can help.",
+  primary: "Get in touch",
+  secondary: "Download CV",
+};
+
+export const cvPath = "/Mohamed_Magdy_Elshafey.pdf";

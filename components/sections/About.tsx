@@ -1,353 +1,267 @@
 "use client";
-import { personalInfo, skills, languages, aboutContent } from "@/lib/data";
-import { motion } from "framer-motion";
+import type { ComponentType } from "react";
 import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiTypescript,
-  SiTailwindcss,
-  SiBootstrap,
-  SiReact,
-  SiNextdotjs,
-  SiGit,
-  SiGithub,
-  SiFigma,
-  SiVercel,
-  SiPostman,
-  SiRedux,
-  SiAngular,
-  SiNodedotjs,
-  SiLaravel,
-  SiPhp,
-  SiMysql,
-  SiNpm,
-  SiFirebase,
-  SiStripe,
-  SiExpress,
-  SiGithubactions,
-  SiJsonwebtokens,
-  SiWhatsapp,
-  SiGoogle,
-  SiLivewire,
+  personalInfo,
+  skills,
+  languages,
+  aboutContent,
+} from "@/lib/data";
+import {
   SiComposer,
+  SiExpress,
+  SiFirebase,
+  SiGit,
+  SiGithubactions,
+  SiGoogle,
+  SiJsonwebtokens,
+  SiLaravel,
+  SiLivewire,
+  SiMysql,
+  SiNodedotjs,
+  SiPhp,
+  SiPostman,
+  SiStripe,
+  SiWhatsapp,
 } from "react-icons/si";
 import {
-  Zap,
-  Target,
-  Layout,
-  User,
-  Clock,
-  MessageSquare,
-  Workflow,
-  Users,
+  Boxes,
   Brain,
-  Database,
+  Clock,
   Code2,
-  Layers,
-  Box,
-  Cpu,
-  UserCheck,
-  Sparkles,
-  Rocket,
-  Eye,
-  Languages,
-  FlaskConical,
   CreditCard,
+  Cpu,
+  Database,
+  FlaskConical,
+  Gauge,
+  Languages,
+  Layers,
   Plug,
+  ShieldCheck,
+  Sparkles,
+  UserCheck,
+  Users,
+  Workflow,
+  Wrench,
 } from "lucide-react";
+import { PageHeader, SectionHeading } from "@/components/ui/PageHeader";
+import { Reveal } from "@/components/ui/Reveal";
+import { CtaBanner } from "@/components/ui/CtaBanner";
+import { card, cardHover, chip } from "@/components/ui/styles";
 
-const getSkillIcon = (skillName: string) => {
-  const lower = skillName.toLowerCase();
+type Icon = ComponentType<{ className?: string }>;
 
-  // Backend Tech Icons - Real Logos
-  if (lower.includes("pest") || lower.includes("testing")) return FlaskConical;
-  if (lower.includes("whatsapp")) return SiWhatsapp;
-  if (lower.includes("firebase")) return SiFirebase;
-  if (lower.includes("stripe")) return SiStripe;
-  if (
-    lower.includes("paymob") ||
-    lower.includes("hyperpay") ||
-    lower.includes("dineropay")
-  )
-    return CreditCard;
-  if (lower.includes("google") || lower.includes("sign-in")) return SiGoogle;
-  if (lower.includes("github actions")) return SiGithubactions;
-  if (lower.includes("express")) return SiExpress;
-  if (lower === "jwt") return SiJsonwebtokens;
-  if (lower.includes("livewire")) return SiLivewire;
-  if (lower.includes("laravel")) return SiLaravel;
-  if (lower.includes("php")) return SiPhp;
-  if (lower.includes("mysql") || lower === "sql") return SiMysql;
-  if (lower.includes("jquery")) return SiJavascript;
-  if (lower.includes("blade")) return SiPhp;
-  if (lower.includes("composer")) return SiComposer;
-  if (lower.includes("apidog")) return Plug;
-  if (lower.includes("npm")) return SiNpm;
-  if (lower.includes("cursor") || lower.includes("vs code")) return Code2;
-  if (lower.includes("html")) return SiHtml5;
-  if (lower.includes("css")) return SiCss3;
-  if (lower.includes("javascript") && !lower.includes("type"))
-    return SiJavascript;
-  if (lower.includes("typescript")) return SiTypescript;
-  if (lower.includes("tailwind")) return SiTailwindcss;
-  if (lower.includes("bootstrap")) return SiBootstrap;
-  if (lower.includes("angular")) return SiAngular;
-  if (lower.includes("react") && !lower.includes("next")) return SiReact;
-  if (lower.includes("next")) return SiNextdotjs;
-  if (lower.includes("node") && !lower.includes("next")) return SiNodedotjs;
-  if (lower.includes("git") && !lower.includes("hub")) return SiGit;
-  if (lower.includes("github")) return SiGithub;
-  if (lower.includes("figma")) return SiFigma;
-  if (lower.includes("vercel") || lower.includes("netlify")) return SiVercel;
-  if (lower.includes("postman")) return SiPostman;
-  if (lower.includes("redux") || lower.includes("context")) return SiRedux;
+const skillIconRules: [RegExp, Icon][] = [
+  [/pest|testing/, FlaskConical],
+  [/whatsapp/, SiWhatsapp],
+  [/firebase/, SiFirebase],
+  [/stripe/, SiStripe],
+  [/paymob|hyperpay|dineropay/, CreditCard],
+  [/google|sign-in/, SiGoogle],
+  [/github actions/, SiGithubactions],
+  [/express/, SiExpress],
+  [/^jwt$/, SiJsonwebtokens],
+  [/livewire/, SiLivewire],
+  [/laravel/, SiLaravel],
+  [/php|blade/, SiPhp],
+  [/mysql/, SiMysql],
+  [/composer/, SiComposer],
+  [/apidog/, Plug],
+  [/node/, SiNodedotjs],
+  [/^git$/, SiGit],
+  [/postman/, SiPostman],
+  [/restful|api/, Code2],
+  [/state machine/, Workflow],
+  [/oop|solid|pattern|service layer|architecture|hmvc|modules/, Layers],
+  [/multi-tenant|rbac/, ShieldCheck],
+  [/database|transaction/, Database],
+  [/optimization/, Gauge],
+  [/team/, Users],
+  [/problem/, Brain],
+  [/adaptab/, Workflow],
+  [/time/, Clock],
+];
 
-  // Concepts & Principles
-  if (lower.includes("restful") || lower.includes("api")) return Code2;
-  if (lower.includes("solid")) return Layers;
-  if (lower.includes("pattern")) return Layers;
-  if (lower.includes("state machine")) return Workflow;
-  if (lower.includes("oop") || lower.includes("object")) return Box;
-  if (lower.includes("mvc")) return Layers;
-  if (lower.includes("module")) return Layers;
-  if (lower.includes("multi-tenant") || lower.includes("rbac")) return Database;
-  if (lower.includes("hmvc") || lower.includes("transaction")) return Layers;
-  if (lower.includes("database") || lower.includes("sql")) return Database;
-  if (lower.includes("performance") || lower.includes("optimization")) return Zap;
-  if (lower.includes("clean code")) return Code2;
+function getSkillIcon(skill: string): Icon {
+  const lower = skill.toLowerCase();
+  return skillIconRules.find(([rule]) => rule.test(lower))?.[1] ?? Code2;
+}
 
-  // Soft Skills & CS
-  if (lower.includes("team") || lower.includes("collaboration")) return Users;
-  if (
-    lower.includes("problem") ||
-    lower.includes("thinking") ||
-    lower.includes("learning")
-  )
-    return Brain;
-  if (lower.includes("communication")) return MessageSquare;
-  if (lower.includes("adaptab")) return Workflow;
-  if (lower.includes("detail")) return Target;
-  if (lower.includes("time")) return Clock;
-  if (lower.includes("agile")) return Zap;
-  if (lower.includes("structure") || lower.includes("algorithm")) return Code2;
-  if (lower.includes("quality")) return Target;
+const skillCategories = [
+  {
+    title: "Backend & APIs",
+    icon: Code2,
+    desc: "Languages, frameworks and API technologies",
+    skills: skills.backend,
+  },
+  {
+    title: "Database & Testing",
+    icon: Database,
+    desc: "Data modeling, performance and automated testing",
+    skills: skills.database,
+  },
+  {
+    title: "Architecture",
+    icon: Cpu,
+    desc: "Patterns and principles behind maintainable backends",
+    skills: skills.architecture,
+  },
+  {
+    title: "Integrations & Tools",
+    icon: Wrench,
+    desc: "Payment gateways, third-party services and tooling",
+    skills: skills.integrations,
+  },
+];
 
-  return Code2;
-};
+const highlightIcons = [Boxes, Plug, Database, Sparkles];
+const [intro, ...restOfBio] = personalInfo.about.split("\n\n");
 
 export function About() {
-  const skillCategories = [
-    {
-      title: "Backend & APIs",
-      icon: Code2,
-      desc: "Languages, frameworks, and API technologies",
-      skills: skills.backend,
-    },
-    {
-      title: "Database & Testing",
-      icon: Database,
-      desc: "Data modeling, performance, and automated testing",
-      skills: skills.database,
-    },
-    {
-      title: "Architecture",
-      icon: Cpu,
-      desc: "Backend architecture patterns and principles",
-      skills: skills.architecture,
-    },
-    {
-      title: "Integrations & Tools",
-      icon: Layers,
-      desc: "Payment gateways, third-party services, and dev tooling",
-      skills: skills.integrations,
-    },
-    {
-      title: "Soft Skills",
-      icon: UserCheck,
-      desc: "Professional and interpersonal skills",
-      skills: skills.soft,
-    },
-  ];
-
   return (
-    <div className="container mx-auto px-4 max-w-5xl space-y-32 mb-20">
-      {/* Intro Section */}
-      <section className="text-center relative">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-white/10 text-primary text-sm font-bold uppercase tracking-widest mb-6">
-          <User className="w-4 h-4" />
-          <span>{aboutContent.badge}</span>
-        </div>
-        <h2 className="text-4xl md:text-6xl font-bold font-outfit text-white mb-8 tracking-tight">
-          {aboutContent.titlePrefix}{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/90 to-primary">
-            {personalInfo.name}
-          </span>
-        </h2>
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xl md:text-2xl leading-relaxed font-light text-slate-300">
-            {personalInfo.about}
-          </p>
-        </div>
-      </section>
+    <div className="mx-auto max-w-6xl">
+      <PageHeader
+        eyebrow={aboutContent.badge}
+        title={aboutContent.title}
+        accent={aboutContent.titleAccent}
+      />
 
-      {/* Highlights Grid - My Approach */}
-      <section className="mt-16">
-        <h3 className="text-2xl md:text-3xl font-bold font-outfit text-white mb-8 text-center">
-          My Approach
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {aboutContent.highlights.map((item, idx) => {
-            const icons = [Sparkles, Rocket, Zap, Eye];
-            const Icon = icons[idx] || Sparkles;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  delay: idx * 0.08,
-                  duration: 0.35,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-                className="flex flex-col items-center text-center p-8 rounded-3xl bg-[#252525] border border-white/10 hover:border-primary/30 transition-all duration-200 group will-change-transform"
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-14">
+        <Reveal className="space-y-6 text-base leading-relaxed text-neutral-300 sm:text-lg">
+          <p className="text-lg text-white sm:text-xl">{intro}</p>
+          {restOfBio.map((paragraph) => (
+            <p key={paragraph.slice(0, 24)} className="text-neutral-400">
+              {paragraph}
+            </p>
+          ))}
+        </Reveal>
+
+        <Reveal delay={0.1} className={`${card} p-6 sm:p-7`}>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+            {aboutContent.factsTitle}
+          </h2>
+          <dl className="mt-5 divide-y divide-white/[0.06]">
+            {aboutContent.facts.map((fact) => (
+              <div
+                key={fact.label}
+                className="flex items-baseline justify-between gap-4 py-3 first:pt-0"
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-200">
-                  <Icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-1 font-outfit">
+                <dt className="text-sm text-neutral-500">{fact.label}</dt>
+                <dd className="text-right text-sm font-medium text-neutral-100">
+                  {fact.value}
+                </dd>
+              </div>
+            ))}
+            <div className="flex items-baseline justify-between gap-4 pt-3">
+              <dt className="flex items-center gap-1.5 text-sm text-neutral-500">
+                <Languages className="h-3.5 w-3.5" />
+                {aboutContent.languagesTitle}
+              </dt>
+              <dd className="text-right text-sm font-medium text-neutral-100">
+                {languages.map((lang) => (
+                  <span key={lang.name} className="block">
+                    {lang.name}{" "}
+                    <span className="font-normal text-neutral-500">
+                      · {lang.level}
+                    </span>
+                  </span>
+                ))}
+              </dd>
+            </div>
+          </dl>
+        </Reveal>
+      </div>
+
+      <section className="mt-24 lg:mt-32">
+        <SectionHeading title={aboutContent.highlightsTitle} />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {aboutContent.highlights.map((item, idx) => {
+            const Icon = highlightIcons[idx] ?? Sparkles;
+            return (
+              <Reveal
+                key={item.label}
+                delay={idx * 0.06}
+                className={`${card} ${cardHover} group p-6`}
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary-light ring-1 ring-inset ring-primary/20 transition-transform duration-300 group-hover:-translate-y-0.5">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-5 font-outfit text-lg font-semibold text-white">
                   {item.label}
                 </h3>
-                <p className="text-slate-400 font-medium">{item.desc}</p>
-              </motion.div>
+                <p className="mt-1.5 text-sm leading-relaxed text-neutral-400">
+                  {item.desc}
+                </p>
+              </Reveal>
             );
           })}
         </div>
       </section>
 
-      {/* Skills Categories (The Menu) */}
-      <section>
-        <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-bold font-outfit text-white">
-            {aboutContent.skillsTitle.split(" ")[0]}{" "}
-            <span className="text-primary">
-              {aboutContent.skillsTitle.split(" ").slice(1).join(" ")}
-            </span>
-          </h3>
-          <p className="text-slate-400 mt-3 text-lg">
-            {aboutContent.skillsDesc}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-12">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                delay: index * 0.08,
-                duration: 0.35,
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              className="relative p-8 md:p-10 rounded-[2.5rem] bg-[#252525] border border-white/10 transition-all duration-200 will-change-transform"
+      <section className="mt-24 lg:mt-32">
+        <SectionHeading
+          title={aboutContent.skillsTitle}
+          description={aboutContent.skillsDesc}
+        />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {skillCategories.map((category, idx) => (
+            <Reveal
+              key={category.title}
+              delay={(idx % 2) * 0.08}
+              className={`${card} p-6 sm:p-7`}
             >
-              {/* Menu Header */}
-              <div className="flex flex-col md:flex-row md:items-center gap-6 mb-10 border-b border-white/5 pb-8">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary/90 to-primary/75 text-slate-900 flex items-center justify-center shadow-md shrink-0">
-                  <category.icon className="w-8 h-8" />
-                </div>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-primary-light">
+                  <category.icon className="h-5 w-5" />
+                </span>
                 <div>
-                  <h4 className="text-2xl md:text-3xl font-bold text-white font-outfit mb-2">
+                  <h3 className="font-outfit text-lg font-semibold text-white">
                     {category.title}
-                  </h4>
-                  <p className="text-lg text-slate-400 font-medium">
-                    {category.desc}
-                  </p>
+                  </h3>
+                  <p className="text-sm text-neutral-500">{category.desc}</p>
                 </div>
               </div>
-
-              {/* Skills Grid - Unified Colors */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                {category.skills.map((skill, sIdx) => {
-                  const Icon = getSkillIcon(skill);
-
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {category.skills.map((skill) => {
+                  const SkillIcon = getSkillIcon(skill);
                   return (
-                    <motion.div
-                      key={sIdx}
-                      initial={{ opacity: 0, scale: 0.92 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, margin: "-20px" }}
-                      transition={{
-                        delay: sIdx * 0.015,
-                        duration: 0.3,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      }}
-                      whileHover={{
-                        y: -3,
-                        scale: 1.03,
-                        transition: { duration: 0.15 },
-                      }}
-                      className="flex flex-col items-center justify-center gap-3 p-5 rounded-2xl bg-gradient-to-br from-[#2a2a2a] to-[#252525] border border-white/10 hover:border-primary/30 transition-all duration-200 group cursor-default will-change-transform"
+                    <li
+                      key={skill}
+                      className={`${chip} py-1.5 text-[13px] transition-colors hover:border-white/20 hover:text-white`}
                     >
-                      <Icon className="w-10 h-10 text-primary group-hover:scale-110 transition-all duration-200" />
-                      <span className="text-xs font-bold text-slate-300 group-hover:text-white transition-colors leading-tight text-center">
-                        {skill}
-                      </span>
-                    </motion.div>
+                      <SkillIcon className="h-3.5 w-3.5 text-neutral-500" />
+                      {skill}
+                    </li>
                   );
                 })}
-              </div>
-            </motion.div>
+              </ul>
+            </Reveal>
           ))}
         </div>
-      </section>
 
-      {/* Languages Section */}
-      <section>
-        <div className="text-center mb-12">
-          <h3 className="text-3xl md:text-4xl font-bold font-outfit text-white">
-            {aboutContent.languagesTitle.split(" ")[0]}{" "}
-            <span className="text-primary">
-              {aboutContent.languagesTitle.split(" ").slice(1).join(" ")}
+        <Reveal className={`${card} mt-4 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:p-7`}>
+          <div className="flex items-center gap-3 sm:w-64 sm:shrink-0">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-primary-light">
+              <UserCheck className="h-5 w-5" />
             </span>
-          </h3>
-          <p className="text-slate-400 mt-3 text-lg">
-            {aboutContent.languagesDesc}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {languages.map((lang, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                delay: idx * 0.08,
-                duration: 0.35,
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-[#252525] border border-white/10 hover:border-primary/30 transition-all duration-200"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                <Languages className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-white font-outfit">
-                  {lang.name}
-                </h4>
-                <p className="text-slate-400 text-sm font-medium">
-                  {lang.level}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            <h3 className="font-outfit text-lg font-semibold text-white">
+              Soft Skills
+            </h3>
+          </div>
+          <ul className="flex flex-wrap gap-2">
+            {skills.soft.map((skill) => {
+              const SkillIcon = getSkillIcon(skill);
+              return (
+                <li key={skill} className={`${chip} py-1.5 text-[13px]`}>
+                  <SkillIcon className="h-3.5 w-3.5 text-neutral-500" />
+                  {skill}
+                </li>
+              );
+            })}
+          </ul>
+        </Reveal>
       </section>
+
+      <CtaBanner />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
-import { SideNav } from "@/components/shared/SideNav";
 import { LeftSidebar } from "@/components/shared/LeftSidebar";
 import { MainContentBackground } from "@/components/shared/MainContentBackground";
 import { MobileHeader } from "@/components/shared/MobileHeader";
@@ -121,11 +120,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
-    shortcut: "/favicon.png",
-    apple: [{ url: "/favicon.png", type: "image/png" }],
-  },
   openGraph: {
     title:
       "Mohamed Magdy Elshafey | Backend Developer | Laravel & PHP Specialist",
@@ -192,24 +186,16 @@ export default function RootLayout({
       <body
         className={`${jakarta.variable} ${outfit.variable} font-sans bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary`}
       >
-        <div className="fixed inset-0 -z-10 bg-background"></div>
-        {/* Global Background Effects (Subtle) */}
-        <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-background to-background opacity-50 pointer-events-none"></div>
-
         <div className="flex min-h-screen">
-          {/* Left Sidebar - Desktop Only */}
-          <aside className="hidden lg:block w-[280px] h-screen fixed top-0 left-0 z-40">
+          <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[280px] lg:block">
             <LeftSidebar />
           </aside>
 
-          {/* Mobile Header - Mobile Only */}
           <MobileHeader />
 
-          {/* Main Content Area */}
-          <main className="flex-grow lg:ml-[280px] w-full relative pt-16 lg:pt-0 lg:pr-24 min-h-screen">
+          <main className="relative min-h-screen w-full min-w-0 flex-grow pt-16 lg:ml-[280px] lg:pt-0">
             <MainContentBackground />
-            <SideNav />
-            <div className="w-full relative z-10">{children}</div>
+            <div className="relative z-10 w-full">{children}</div>
           </main>
         </div>
         <FloatingWhatsApp />

@@ -9,14 +9,11 @@ export default function manifest(): MetadataRoute.Manifest {
       "Backend Developer specialized in Laravel, PHP, and building scalable systems",
     start_url: "/",
     display: "standalone",
-    background_color: "#1a1a1a",
-    theme_color: "#3776AB",
+    background_color: "#121212",
+    theme_color: "#121212",
     icons: [
-      {
-        src: "/mee1-removebg-preview.png",
-        sizes: "192x192 512x512",
-        type: "image/png",
-      },
+      { src: "/icon", sizes: "64x64", type: "image/png" },
+      { src: "/apple-icon", sizes: "180x180", type: "image/png" },
     ],
   };
 }

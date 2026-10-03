@@ -2,50 +2,29 @@
 
 import { motion } from "framer-motion";
 
-interface PageWrapperProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-// Optimized animation variants for better performance
 const pageVariants = {
-  initial: {
-    opacity: 0,
-    y: 10,
-  },
+  initial: { opacity: 0 },
   animate: {
     opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.3,
-      ease: [0.25, 0.1, 0.25, 1] as const,
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: -10,
-    transition: {
-      duration: 0.2,
-      ease: [0.25, 0.1, 0.25, 1] as const,
-    },
+    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] as const },
   },
 };
 
 export function PageWrapper({
   children,
   className,
-  backgroundVariant,
-}: PageWrapperProps & { backgroundVariant?: string }) {
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <motion.div
       initial="initial"
       animate="animate"
-      exit="exit"
       variants={pageVariants}
-      className={`min-h-screen will-change-transform relative overflow-hidden ${
-        className || "py-20 px-4 md:px-8"
+      className={`relative min-h-screen ${
+        className ?? "px-6 pb-20 pt-12 sm:px-10 lg:pb-24 lg:pt-20"
       }`}
-      data-background-variant={backgroundVariant}
     >
       <div className="relative z-10">{children}</div>
     </motion.div>

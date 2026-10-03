@@ -1,122 +1,273 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { projects, projectsContent } from "@/lib/data";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import { Github, ExternalLink, X, FolderOpen } from "lucide-react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, ExternalLink, Github, X } from "lucide-react";
+import { projects, projectsContent } from "@/lib/data";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Reveal, EASE } from "@/components/ui/Reveal";
+import { CtaBanner } from "@/components/ui/CtaBanner";
+import {
+  buttonPrimary,
+  buttonSecondary,
+  card,
+  cardHover,
+  chip,
+  focusRing,
+} from "@/components/ui/styles";
 
-// Define type based on data structure
-interface Project {
-  title: string;
-  role?: string;
-  inProgress?: boolean;
-  description: string;
-  tech: string[];
-  github: string;
-  demo: string;
-  image: string;
-  details?: string;
+type Project = (typeof projects)[number];
+
+const hasDemo = (project: Project) =>
+  Boolean(project.demo) && project.demo !== "#";
+
+const hasRepo = (project: Project) =>
+  new URL(project.github).pathname.split("/").filter(Boolean).length >= 2;
+
+const liveCount = projects.filter(hasDemo).length;
+
+function ProjectImage({
+  project,
+  sizes,
+  className = "",
+}: {
+  project: Project;
+  sizes: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`relative overflow-hidden bg-[#0d0d0d] ${className}`}
+    >
+      <Image
+        src={project.image}
+        alt=""
+        aria-hidden
+        fill
+        sizes="64px"
+        className="scale-150 object-cover opacity-40 blur-2xl"
+      />
+      <div className="absolute inset-5 sm:inset-6">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes={sizes}
+          className="rounded-lg object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.04]"
+        />
+      </div>
+    </div>
+  );
+}
+
+function StatusBadge() {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/25 bg-[#1c1608]/90 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-amber-300 backdrop-blur-md">
+      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-300" />
+      {projectsContent.inProgress}
+    </span>
+  );
 }
 
 function ProjectCard({
   project,
   index,
-  onClick,
+  onOpen,
 }: {
   project: Project;
   index: number;
-  onClick: () => void;
+  onOpen: () => void;
 }) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const extraTech = project.tech.length - 4;
 
-  const mouseX = useSpring(x, { stiffness: 500, damping: 100 });
-  const mouseY = useSpring(y, { stiffness: 500, damping: 100 });
+  return (
+    <Reveal delay={(index % 3) * 0.06} className="h-full">
+      <article
+        className={`${card} ${cardHover} group relative flex h-full flex-col overflow-hidden has-[button:focus-visible]:ring-2 has-[button:focus-visible]:ring-primary-light`}
+      >
+        <div className="relative">
+          <ProjectImage
+            project={project}
+            className="aspect-[16/10] border-b border-white/[0.06]"
+            sizes="(max-width: 768px) 90vw, (max-width: 1280px) 45vw, 360px"
+          />
+          {project.inProgress && (
+            <div className="absolute left-4 top-4">
+              <StatusBadge />
+            </div>
+          )}
+        </div>
 
-  function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top, width, height } = currentTarget.getBoundingClientRect();
-    x.set(clientX - left - width / 2);
-    y.set(clientY - top - height / 2);
-  }
+        <div className="flex flex-1 flex-col p-5 sm:p-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary-light">
+            {project.role}
+          </p>
+          <h3 className="mt-2 font-outfit text-xl font-semibold text-white">
+            <button
+              type="button"
+              onClick={onOpen}
+              className="text-left after:absolute after:inset-0 focus-visible:outline-none"
+            >
+              {project.title}
+            </button>
+          </h3>
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-400">
+            {project.description}
+          </p>
 
-  function onMouseLeave() {
-    x.set(0);
-    y.set(0);
-  }
+          <ul className="mb-5 mt-4 flex flex-wrap gap-1.5">
+            {project.tech.slice(0, 4).map((tech) => (
+              <li key={tech} className={chip}>
+                {tech}
+              </li>
+            ))}
+            {extraTech > 0 && (
+              <li className={`${chip} text-neutral-500`}>+{extraTech}</li>
+            )}
+          </ul>
 
-  const rotateX = useTransform(mouseY, [-300, 300], [10, -10]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-10, 10]);
+          <div className="mt-auto flex items-center justify-between border-t border-white/[0.06] pt-4">
+            <span className="inline-flex items-center gap-1 text-sm font-medium text-neutral-400 transition-colors group-hover:text-white">
+              {projectsContent.btnDetails}
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </span>
+            {hasDemo(project) && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`relative z-10 inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-medium text-primary-light transition-colors hover:bg-primary/10 ${focusRing}`}
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Live
+              </a>
+            )}
+          </div>
+        </div>
+      </article>
+    </Reveal>
+  );
+}
+
+function ProjectDialog({
+  project,
+  onClose,
+}: {
+  project: Project;
+  onClose: () => void;
+}) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [onClose]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        duration: 0.25,
-        delay: index * 0.05,
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
-      style={{ perspective: 1000 }}
-      className="h-full will-change-transform"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="project-dialog-title"
     >
+      <div
+        aria-hidden
+        onClick={onClose}
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+      />
+
       <motion.div
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        onMouseMove={onMouseMove}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-        className="group relative h-full w-full rounded-3xl bg-[#1f1f1f] border border-white/5 p-4 transition-all duration-200 cursor-pointer overflow-hidden flex flex-col"
-        suppressHydrationWarning
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 40 }}
+        transition={{ duration: 0.35, ease: EASE }}
+        className="relative flex max-h-[92svh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl border border-white/10 bg-[#141414] shadow-2xl shadow-black/60 sm:rounded-3xl"
       >
-        {/* shine effect */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        <button
+          ref={closeRef}
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className={`absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white backdrop-blur-md transition-colors hover:bg-black/70 ${focusRing}`}
+        >
+          <X className="h-4 w-4" />
+        </button>
 
-        {/* Image Container */}
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden transform-style-3d group-hover:translate-z-10 transition-transform">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+        <ProjectImage
+          project={project}
+          className="aspect-[16/8] shrink-0 border-b border-white/[0.06]"
+          sizes="(max-width: 768px) 100vw, 768px"
+        />
 
-          <div className="absolute top-3 left-3 flex flex-wrap gap-2 z-10">
-            {project.inProgress && (
-              <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 border border-amber-400/20 rounded-full backdrop-blur-md">
-                In Progress
-              </span>
-            )}
-            {project.role && (
-              <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded-full backdrop-blur-md">
-                {project.role}
-              </span>
-            )}
+        <div className="overflow-y-auto p-6 sm:p-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary-light">
+              {project.role}
+            </span>
+            {project.inProgress && <StatusBadge />}
           </div>
-
-          <div className="absolute top-3 right-3 flex gap-2 translate-z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-            <div className="p-2.5 bg-primary text-slate-900 rounded-full backdrop-blur-md">
-              <ExternalLink className="w-4 h-4" />
-            </div>
-          </div>
-        </div>
-
-        {/* Minimal Footer */}
-        <div className="mt-6 text-center transform-style-3d group-hover:translate-z-5 transition-transform relative z-10 pb-2">
-          <h3 className="text-xl md:text-2xl font-bold font-outfit text-white group-hover:text-primary transition-colors">
+          <h2
+            id="project-dialog-title"
+            className="mt-2 font-outfit text-2xl font-bold text-white sm:text-3xl"
+          >
             {project.title}
-          </h3>
-          <p className="text-sm text-neutral-400 font-medium tracking-wider uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300">
-            {projectsContent.btnDetails}
+          </h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-neutral-300">
+            {project.details ?? project.description}
           </p>
+
+          <h3 className="mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+            {projectsContent.techTitle}
+          </h3>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
+              <li key={tech} className={`${chip} py-1.5 text-[13px]`}>
+                {tech}
+              </li>
+            ))}
+          </ul>
+
+          {(hasDemo(project) || hasRepo(project)) && (
+            <div className="mt-8 flex flex-col gap-3 border-t border-white/[0.06] pt-6 sm:flex-row">
+              {hasDemo(project) && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonPrimary}
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  {projectsContent.btnDemo}
+                </a>
+              )}
+              {hasRepo(project) && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonSecondary}
+                >
+                  <Github className="h-4 w-4" />
+                  {projectsContent.btnGithub}
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </motion.div>
     </motion.div>
@@ -124,10 +275,9 @@ function ProjectCard({
 }
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof projects)[0] | null
-  >(null);
+  const [selected, setSelected] = useState<Project | null>(null);
   const [mounted, setMounted] = useState(false);
+  const closeDialog = useCallback(() => setSelected(null), []);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -135,146 +285,48 @@ export function Projects() {
   }, []);
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-16 relative">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-white/10 text-primary text-sm font-bold uppercase tracking-widest mb-4">
-          <FolderOpen className="w-4 h-4" />
-          <span>{projectsContent.badge}</span>
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold font-outfit text-white">
-          {projectsContent.title.split(" ")[0]}{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/85 to-primary/70">
-            {projectsContent.title.split(" ").slice(1).join(" ")}
+    <div className="mx-auto max-w-6xl">
+      <PageHeader
+        eyebrow={projectsContent.badge}
+        title={projectsContent.title}
+        accent={projectsContent.titleAccent}
+        description={projectsContent.description}
+      >
+        <div className="mt-6 flex flex-wrap gap-2 text-sm">
+          <span className={`${chip} px-3 py-1.5 text-sm`}>
+            <span className="font-semibold text-white">{projects.length}</span>
+            projects
           </span>
-        </h2>
-        <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
-          {projectsContent.description}
-        </p>
-      </div>
+          <span className={`${chip} px-3 py-1.5 text-sm`}>
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="font-semibold text-white">{liveCount}</span>
+            live in production
+          </span>
+        </div>
+      </PageHeader>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {projects.map((project, index) => (
           <ProjectCard
-            key={index}
+            key={project.title}
             project={project}
             index={index}
-            onClick={() => setSelectedProject(project)}
+            onOpen={() => setSelected(project)}
           />
         ))}
       </div>
 
-      {mounted && typeof window !== "undefined" &&
+      <CtaBanner />
+
+      {mounted &&
         createPortal(
           <AnimatePresence>
-            {selectedProject && (
-              <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                />
-
-                <motion.div
-                  layoutId={`project-modal-${projects.indexOf(
-                    selectedProject
-                  )}`}
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                  className="relative w-full max-w-3xl bg-card border border-border/50 rounded-3xl shadow-lg overflow-hidden h-[85vh] flex flex-col z-50"
-                >
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors z-[60] backdrop-blur-md"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-
-                  {/* Top Image Section - 45% Height */}
-                  <div className="relative w-full h-[45%] shrink-0 bg-neutral-900 overflow-hidden">
-                    {/* Ambient Background Blur */}
-                    <Image
-                      src={selectedProject.image}
-                      alt=""
-                      fill
-                      className="object-cover opacity-60 blur-2xl scale-110 grayscale-[0.2]"
-                    />
-
-                    {/* Main Clear Image */}
-                    <Image
-                      src={selectedProject.image}
-                      alt={selectedProject.title}
-                      fill
-                      className="relative z-10 object-contain p-6"
-                    />
-                  </div>
-
-                  {/* Bottom Content Section - 55% Height */}
-                  <div className="flex-1 p-6 md:p-8 overflow-y-auto bg-card flex flex-col">
-                    <div className="mb-4">
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
-                        {selectedProject.inProgress && (
-                          <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 border border-amber-400/20 rounded-full">
-                            In Progress
-                          </span>
-                        )}
-                        {selectedProject.role && (
-                          <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded-full">
-                            {selectedProject.role}
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-2xl md:text-4xl font-bold font-outfit text-white">
-                          {selectedProject.title}
-                        </h3>
-                      </div>
-                      <p className="text-base md:text-lg text-muted-foreground/90 leading-relaxed font-light line-clamp-4">
-                        {selectedProject.details || selectedProject.description}
-                      </p>
-                    </div>
-
-                    <div className="mb-6">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-3">
-                        Technologies
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedProject.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="px-3 py-1 bg-primary/5 border border-white/10 text-primary text-xs font-medium rounded-lg"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-auto grid grid-cols-2 gap-4 pt-4 border-t border-border/50">
-                      <a
-                        href={selectedProject.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1f1f1f] text-slate-200 border border-white/10 hover:border-primary/30 hover:bg-primary/10 transition-all font-bold text-sm"
-                      >
-                        <Github className="w-4 h-4" />
-                        {projectsContent.btnGithub}
-                      </a>
-                      <a
-                        href={selectedProject.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-primary via-primary/95 to-primary/90 hover:from-primary/90 hover:via-primary/85 hover:to-primary/80 text-slate-900 font-bold hover:-translate-y-0.5 transition-all duration-200 text-sm"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        {projectsContent.btnDemo}
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
+            {selected && (
+              <ProjectDialog
+                key={selected.title}
+                project={selected}
+                onClose={closeDialog}
+              />
             )}
           </AnimatePresence>,
           document.body

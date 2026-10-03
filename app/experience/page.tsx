@@ -1,9 +1,11 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { PageWrapper } from "@/components/PageWrapper";
+import { Experience } from "@/components/sections/Experience";
 
 export const metadata: Metadata = {
-  title: "Experience — Mohamed Magdy Elshafey | Backend Developer",
+  title: {
+    absolute: "Experience — Mohamed Magdy Elshafey | Backend Developer",
+  },
   description:
     "Professional work history of Mohamed Magdy Elshafey: Backend Developer at Beyonex IT (Riyadh, remote, Feb 2026–present) building 7+ products; Backend Developer at Brmja Tech (Oct 2024–2026) leading Bayt-Link SaaS and Faya ERP; Part-time Developer at Websolla (Jun–Aug 2025). Laravel, PHP, SaaS, ERP.",
   alternates: {
@@ -25,18 +27,10 @@ export const metadata: Metadata = {
   },
 };
 
-const ExperienceComponent = dynamic(
-  () =>
-    import("@/components/sections/Experience").then((m) => ({
-      default: m.Experience,
-    })),
-  { ssr: true }
-);
-
 export default function ExperiencePage() {
   return (
-    <PageWrapper backgroundVariant="experience">
-      <ExperienceComponent />
+    <PageWrapper>
+      <Experience />
     </PageWrapper>
   );
 }

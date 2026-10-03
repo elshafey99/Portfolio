@@ -1,55 +1,120 @@
 "use client";
-import { education, experienceContent } from "@/lib/data";
-import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import { Award, CalendarDays, GraduationCap, MapPin } from "lucide-react";
+import {
+  certifications,
+  education,
+  educationContent,
+  experienceContent,
+} from "@/lib/data";
+import { PageHeader, SectionHeading } from "@/components/ui/PageHeader";
+import { Reveal } from "@/components/ui/Reveal";
+import { CtaBanner } from "@/components/ui/CtaBanner";
+import { card, cardHover } from "@/components/ui/styles";
+
+const certificationPattern = /^(.*?)\s*-\s*(.*?)\s*\((.*)\)$/;
+
+function parseCertification(raw: string) {
+  const match = raw.match(certificationPattern);
+  return match
+    ? { title: match[1], issuer: match[2], date: match[3] }
+    : { title: raw, issuer: "", date: "" };
+}
+
+export function EducationCard() {
+  return (
+    <Reveal className={`${card} ${cardHover} relative overflow-hidden p-6 sm:p-8`}>
+      <div
+        aria-hidden
+        className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/15 blur-3xl"
+      />
+      <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start">
+        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[#1f4466] text-white shadow-lg shadow-primary/20 ring-1 ring-inset ring-white/15">
+          <GraduationCap className="h-7 w-7" />
+        </span>
+        <div className="min-w-0 flex-1">
+          <h3 className="font-outfit text-xl font-semibold text-white sm:text-2xl">
+            {education.degree}
+          </h3>
+          <p className="mt-1.5 text-neutral-300">{education.university}</p>
+          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-neutral-500">
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarDays className="h-4 w-4" />
+              {education.duration}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-4 w-4" />
+              {education.location}
+            </span>
+          </div>
+          <p className="mt-5 border-t border-white/[0.06] pt-5 text-sm leading-relaxed text-neutral-400 sm:text-base">
+            {education.details}
+          </p>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
+export function CertificationList() {
+  return (
+    <div className="grid gap-4">
+      {certifications.map((raw, idx) => {
+        const cert = parseCertification(raw);
+        return (
+          <Reveal
+            key={raw}
+            delay={idx * 0.06}
+            className={`${card} ${cardHover} flex items-start gap-4 p-5 sm:p-6`}
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20">
+              <Award className="h-5 w-5" />
+            </span>
+            <div className="min-w-0">
+              <h3 className="font-semibold leading-snug text-white">
+                {cert.title}
+              </h3>
+              {cert.issuer && (
+                <p className="mt-1 text-sm text-neutral-400">{cert.issuer}</p>
+              )}
+              {cert.date && (
+                <p className="mt-2 text-xs text-neutral-500">{cert.date}</p>
+              )}
+            </div>
+          </Reveal>
+        );
+      })}
+    </div>
+  );
+}
 
 export function Education() {
   return (
-    <div className="max-w-4xl mx-auto px-4 mt-10 mb-20">
-      <div className="flex items-center gap-3 mb-10 justify-center">
-        <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
-          <GraduationCap className="w-6 h-6" />
-        </div>
-        <h2 className="text-4xl font-bold font-outfit text-white">
-          {experienceContent.educationTitle}
-        </h2>
+    <div className="mx-auto max-w-6xl">
+      <PageHeader
+        eyebrow={educationContent.badge}
+        title={educationContent.title}
+        accent={educationContent.titleAccent}
+        description={educationContent.description}
+      />
+
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-10">
+        <section>
+          <SectionHeading
+            title={experienceContent.educationTitle}
+            icon={GraduationCap}
+          />
+          <EducationCard />
+        </section>
+        <section>
+          <SectionHeading
+            title={experienceContent.achievementsTitle}
+            icon={Award}
+          />
+          <CertificationList />
+        </section>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-30px" }}
-        transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-        className="relative group md:hover:scale-[1.02] transition-transform duration-400 will-change-transform"
-      >
-        {/* Glow Effect */}
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-primary/85 to-primary/70 rounded-3xl opacity-5 blur-xl transition-opacity duration-500" />
-
-        <div className="relative flex flex-col md:flex-row items-center md:items-start gap-8 p-8 md:p-10 rounded-3xl bg-[#252525] border border-white/10 shadow-lg">
-          {/* Icon */}
-          <div className="flex-shrink-0">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-slate-900 flex items-center justify-center shadow-md rotate-3 group-hover:rotate-6 transition-transform duration-300">
-              <GraduationCap className="w-10 h-10" />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="flex-grow text-center md:text-left space-y-4">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold font-outfit text-white mb-2">
-                {education.degree}
-              </h3>
-              <p className="text-lg md:text-xl text-slate-300 font-medium">
-                {education.university}
-              </p>
-            </div>
-
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-white/10 text-primary text-sm font-bold tracking-wide uppercase">
-              {education.duration}
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <CtaBanner />
     </div>
   );
 }

@@ -1,168 +1,119 @@
 "use client";
+import { Award, Briefcase, CalendarDays, GraduationCap, MapPin } from "lucide-react";
+import { experience, experienceContent } from "@/lib/data";
+import { PageHeader, SectionHeading } from "@/components/ui/PageHeader";
+import { Reveal } from "@/components/ui/Reveal";
+import { CtaBanner } from "@/components/ui/CtaBanner";
+import { card, cardHover } from "@/components/ui/styles";
 import {
-  experience,
-  education,
-  certifications,
-  experienceContent,
-} from "@/lib/data";
-import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Award } from "lucide-react";
+  CertificationList,
+  EducationCard,
+} from "@/components/sections/Education";
 
 export function Experience() {
   return (
-    <div className="container mx-auto px-4 max-w-6xl">
-      <div className="text-center mb-16 relative">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-white/10 text-primary text-sm font-bold uppercase tracking-widest mb-4">
-          <Briefcase className="w-4 h-4" />
-          <span>{experienceContent.badge}</span>
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold font-outfit text-white">
-          My{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/90 to-primary">
-            Journey
-          </span>
-        </h2>
-      </div>
+    <div className="mx-auto max-w-6xl">
+      <PageHeader
+        eyebrow={experienceContent.badge}
+        title={experienceContent.title}
+        accent={experienceContent.titleAccent}
+        description={experienceContent.description}
+      />
 
-      <div className="space-y-24">
-        {/* Work Experience Section */}
-        <section className="space-y-8">
-          <h3 className="text-3xl font-bold flex items-center gap-4 text-white font-outfit">
-            <span className="p-3 rounded-2xl bg-primary/10 text-primary">
-              <Briefcase className="w-6 h-6" />
-            </span>
-            {experienceContent.workTitle}
-          </h3>
+      <section>
+        <SectionHeading title={experienceContent.workTitle} icon={Briefcase} />
 
-          <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12 pb-4">
-            {experience.map((job, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{
-                  delay: index * 0.08,
-                  duration: 0.35,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-                className="relative pl-8 md:pl-12 group will-change-transform"
+        <div className="relative space-y-6 md:space-y-8">
+          <span
+            aria-hidden
+            className="absolute bottom-4 left-[7px] top-4 w-px bg-gradient-to-b from-primary-light/60 via-white/10 to-transparent md:left-[223px]"
+          />
+          {experience.map((job, index) => {
+            const isCurrent = job.duration.includes("Present");
+            return (
+              <Reveal
+                key={`${job.company}-${job.duration}`}
+                delay={index * 0.06}
+                className="relative grid gap-4 pl-8 md:grid-cols-[200px_1fr] md:gap-12 md:pl-0"
               >
-                {/* Timeline Dot */}
-                <span className="absolute -left-[5px] top-8 w-3 h-3 rounded-full bg-primary ring-4 ring-[#111] group-hover:scale-150 transition-all duration-200" />
+                <span
+                  aria-hidden
+                  className={`absolute left-0 top-7 flex h-[15px] w-[15px] items-center justify-center rounded-full border md:left-[216px] ${
+                    isCurrent
+                      ? "border-emerald-400/40 bg-emerald-400/20"
+                      : "border-white/15 bg-[#121212]"
+                  }`}
+                >
+                  <span
+                    className={`h-[7px] w-[7px] rounded-full ${
+                      isCurrent ? "bg-emerald-400" : "bg-neutral-500"
+                    }`}
+                  />
+                </span>
 
-                <div className="p-6 md:p-8 rounded-2xl bg-[#252525] border border-white/10 hover:border-primary/30 transition-all duration-200 relative overflow-hidden group-hover:-translate-y-0.5">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4 relative z-10">
-                    <div>
-                      <div className="flex flex-wrap items-center gap-3 mb-1">
-                        <h4 className="text-2xl font-bold text-white font-outfit group-hover:text-primary/90 transition-colors">
-                          {job.role}
-                        </h4>
-                        {job.duration.includes("Present") && (
-                          <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1 rounded-full">
-                            Current
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-lg font-medium text-slate-400 mt-2">
-                        {job.company}
-                      </p>
-                      {"location" in job && job.location && (
-                        <p className="text-sm text-slate-500 mt-1">
-                          {job.location}
-                        </p>
-                      )}
-                    </div>
-                    <span className="text-sm font-bold tracking-wide text-primary bg-primary/10 border border-white/10 px-4 py-2 rounded-full w-fit whitespace-nowrap self-start">
-                      {job.duration}
-                    </span>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 md:block md:pt-6 md:text-right">
+                  <p className="flex items-center gap-1.5 text-sm font-medium text-neutral-300 md:justify-end">
+                    <CalendarDays className="h-4 w-4 text-neutral-500 md:hidden" />
+                    {job.duration}
+                  </p>
+                  <p className="flex items-center gap-1.5 text-xs text-neutral-500 md:mt-1 md:justify-end">
+                    <MapPin className="h-3.5 w-3.5 md:hidden" />
+                    {job.location}
+                  </p>
+                </div>
+
+                <article className={`${card} ${cardHover} p-6 sm:p-7`}>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <h3 className="font-outfit text-xl font-semibold text-white sm:text-2xl">
+                      {job.role}
+                    </h3>
+                    {isCurrent && (
+                      <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
+                        Current
+                      </span>
+                    )}
                   </div>
-
-                  <ul className="space-y-4 relative z-10">
-                    {job.points.map((point, i) => (
+                  <p className="mt-1 font-medium text-primary-light">
+                    {job.company}
+                  </p>
+                  <ul className="mt-5 space-y-3">
+                    {job.points.map((point) => (
                       <li
-                        key={i}
-                        className="flex items-start text-slate-300 text-base leading-relaxed"
+                        key={point}
+                        className="flex gap-3 text-[15px] leading-relaxed text-neutral-400"
                       >
-                        <span className="mr-4 mt-2.5 w-1.5 h-1.5 bg-primary rounded-full shrink-0" />
+                        <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary-light/70" />
                         {point}
                       </li>
                     ))}
                   </ul>
-                </div>
-              </motion.div>
-            ))}
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mt-24 lg:mt-32">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-10">
+          <div>
+            <SectionHeading
+              title={experienceContent.educationTitle}
+              icon={GraduationCap}
+            />
+            <EducationCard />
           </div>
-        </section>
-
-        {/* Education Section */}
-        <section className="space-y-8">
-          <h3 className="text-3xl font-bold flex items-center gap-4 text-white font-outfit">
-            <span className="p-3 rounded-2xl bg-primary/10 text-primary">
-              <GraduationCap className="w-6 h-6" />
-            </span>
-            {experienceContent.educationTitle}
-          </h3>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className="p-8 rounded-3xl bg-gradient-to-br from-[#252525] to-[#202020] border border-white/10 hover:border-primary/30 transition-all duration-200 group will-change-transform"
-          >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
-              <div>
-                <h4 className="text-2xl font-bold text-white leading-tight mb-2 group-hover:text-primary/90 transition-colors">
-                  {education.degree}
-                </h4>
-                <p className="text-lg font-medium text-slate-400 flex items-center gap-2">
-                  {education.university}
-                </p>
-                {"location" in education && education.location && (
-                  <p className="text-sm text-slate-500 mt-1">
-                    {education.location}
-                  </p>
-                )}
-              </div>
-              <span className="text-sm font-bold uppercase tracking-wider text-primary bg-primary/10 px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap w-fit">
-                {education.duration}
-              </span>
-            </div>
-            <p className="text-lg text-slate-300 leading-relaxed max-w-3xl">
-              {education.details}
-            </p>
-          </motion.div>
-        </section>
-
-        {/* Certifications Section */}
-        <section className="space-y-8">
-          <h3 className="text-3xl font-bold flex items-center gap-4 text-white font-outfit">
-            <span className="p-3 rounded-2xl bg-primary/10 text-primary">
-              <Award className="w-6 h-6" />
-            </span>
-            {experienceContent.achievementsTitle}
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.map((cert, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-start gap-4 p-6 rounded-2xl bg-[#252525] border border-white/10 hover:border-primary/30 transition-all duration-200 group"
-              >
-                <div className="mt-1 w-3 h-3 rounded-full bg-primary group-hover:scale-150 transition-transform ring-4 ring-white/5 shrink-0" />
-                <span className="text-base font-semibold text-slate-200 leading-snug group-hover:text-white transition-colors">
-                  {cert}
-                </span>
-              </motion.div>
-            ))}
+          <div>
+            <SectionHeading
+              title={experienceContent.achievementsTitle}
+              icon={Award}
+            />
+            <CertificationList />
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <CtaBanner />
     </div>
   );
 }

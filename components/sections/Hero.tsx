@@ -17,9 +17,13 @@ import {
 } from "react-icons/si";
 import Link from "next/link";
 import Image from "next/image";
-import { experience, heroContent, personalInfo } from "@/lib/data";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { cvPath, experience, heroContent, personalInfo } from "@/lib/data";
+import { EASE } from "@/components/ui/Reveal";
+import {
+  buttonPrimary,
+  buttonSecondary,
+  focusRing,
+} from "@/components/ui/styles";
 
 const container: Variants = {
   hidden: {},
@@ -55,15 +59,10 @@ const stack = [
   { name: "Postman", Icon: SiPostman, color: "#FF6C37" },
 ];
 
-const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-light focus-visible:ring-offset-2 focus-visible:ring-offset-[#121212]";
-
 export function Hero() {
   return (
     <MotionConfig reducedMotion="user">
-      <section className="relative isolate flex min-h-[calc(100svh-4rem)] w-full flex-col justify-center overflow-hidden bg-[#121212] lg:min-h-screen">
-        <HeroBackground />
-
+      <section className="relative isolate flex min-h-[calc(100svh-4rem)] w-full flex-col justify-center overflow-hidden lg:min-h-screen">
         <div className="relative mx-auto w-full max-w-6xl px-6 pb-10 pt-12 sm:px-10 xl:py-16">
           <div className="grid grid-cols-1 items-center gap-14 xl:grid-cols-[1.2fr_0.8fr] xl:gap-10">
             <motion.div
@@ -123,15 +122,15 @@ export function Hero() {
               >
                 <Link
                   href="/projects"
-                  className={`group inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-semibold text-white shadow-lg shadow-primary/25 ring-1 ring-inset ring-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-primary/40 sm:w-auto ${focusRing}`}
+                  className={`group ${buttonPrimary}`}
                 >
                   {heroContent.btnProject}
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
                 <a
-                  href="/Mohamed_Magdy_Elshafey.pdf"
+                  href={cvPath}
                   download
-                  className={`group inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-6 text-sm font-semibold text-neutral-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07] sm:w-auto ${focusRing}`}
+                  className={`group ${buttonSecondary}`}
                 >
                   <Download className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
                   {heroContent.btnContact}
@@ -318,26 +317,5 @@ function FloatingChip({
     >
       {children}
     </motion.div>
-  );
-}
-
-function HeroBackground() {
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
-          maskImage:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-        }}
-      />
-      <div className="absolute -top-48 left-1/2 h-[480px] w-[760px] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]" />
-      <div className="absolute -bottom-32 -right-24 h-[360px] w-[360px] rounded-full bg-primary/10 blur-[120px]" />
-    </div>
   );
 }

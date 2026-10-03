@@ -3,7 +3,10 @@ import { PageWrapper } from "@/components/PageWrapper";
 import { Education as EducationComponent } from "@/components/sections/Education";
 
 export const metadata: Metadata = {
-  title: "Education — Mohamed Magdy Elshafey | Computer Science, Benha University",
+  title: {
+    absolute:
+      "Education — Mohamed Magdy Elshafey | Computer Science, Benha University",
+  },
   description:
     "Mohamed Magdy Elshafey holds a Bachelor's Degree in Computer Science from the Faculty of Computers and Artificial Intelligence, Benha University, Egypt (2020–2024). Focused on software development, data structures, and database design.",
   alternates: {
@@ -28,9 +31,7 @@ export const metadata: Metadata = {
 export default function EducationPage() {
   return (
     <PageWrapper>
-      <div className="space-y-20">
-        <EducationComponent />
-      </div>
+      <EducationComponent />
     </PageWrapper>
   );
 }
