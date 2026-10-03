@@ -1,29 +1,29 @@
 import { Metadata } from "next";
+import { PageWrapper } from "@/components/PageWrapper";
 import { Education as EducationComponent } from "@/components/sections/Education";
 
 export const metadata: Metadata = {
-  title: "Education - Academic Background",
+  title: "Education — Mohamed Magdy Elshafey | Computer Science, Benha University",
   description:
-    "Discover Mohamed Magdy Elshafey's educational background, academic achievements, and professional certifications in Computer Science and Backend Development.",
+    "Mohamed Magdy Elshafey holds a Bachelor's Degree in Computer Science from the Faculty of Computers and Artificial Intelligence, Benha University, Egypt (2020–2024). Focused on software development, data structures, and database design.",
   alternates: {
     canonical: "https://mohamed-elshafey.vercel.app/education",
   },
   openGraph: {
-    title: "Education & Certifications - Mohamed Magdy Elshafey",
+    title: "Education — Mohamed Magdy Elshafey",
     description:
-      "Explore my academic journey, certifications, and continuous learning in backend development and computer science.",
+      "B.Sc. Computer Science, Faculty of Computers and Artificial Intelligence, Benha University, Egypt (2020–2024).",
     url: "https://mohamed-elshafey.vercel.app/education",
     images: [
       {
         url: "/mee1-removebg-preview.png",
         width: 800,
         height: 800,
-        alt: "Mohamed Magdy Elshafey Education",
+        alt: "Mohamed Magdy Elshafey — Education",
       },
     ],
   },
 };
-import { PageWrapper } from "@/components/PageWrapper";
 
 export default function EducationPage() {
   return (

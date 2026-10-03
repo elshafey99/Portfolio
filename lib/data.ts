@@ -372,11 +372,18 @@ export const navLinks = [
 ];
 
 export const heroContent = {
-  intro: "Hi, I'm",
+  availability: "Available for new opportunities",
   description:
-    "Backend Developer with 2+ years building production Laravel APIs for SaaS, ERP, healthcare, e-learning and booking platforms. I specialize in multi-tenant architecture, RBAC, payment integrations, and automated testing with Pest.",
-  btnProject: "View Work",
+    "I build production Laravel APIs for SaaS, ERP, healthcare, e-learning and booking platforms — specializing in multi-tenant architecture, RBAC, payment integrations, and automated testing with Pest.",
+  btnProject: "View Projects",
   btnContact: "Download CV",
+  stats: [
+    { value: "2+", label: "Years Experience" },
+    { value: "15+", label: "Projects Delivered" },
+    { value: "460+", label: "API Endpoints Built" },
+    { value: "100+", label: "Pest Test Files" },
+  ],
+  stackTitle: "Core Stack",
 };
 
 export const aboutContent = {

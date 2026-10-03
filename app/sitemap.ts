@@ -1,45 +1,45 @@
 import { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mohamed-elshafey.vercel.app";
-  const currentDate = new Date();
+const BASE = "https://mohamed-elshafey.vercel.app";
+const UPDATED = new Date("2026-10-03");
 
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 1.0,
+      url: BASE,
+      lastModified: UPDATED,
+      changeFrequency: "monthly",
+      priority: 1,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: currentDate,
+      url: `${BASE}/about`,
+      lastModified: UPDATED,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
+      url: `${BASE}/experience`,
+      lastModified: UPDATED,
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/experience`,
-      lastModified: currentDate,
+      url: `${BASE}/projects`,
+      lastModified: UPDATED,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/education`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
+      url: `${BASE}/education`,
+      lastModified: UPDATED,
+      changeFrequency: "yearly",
       priority: 0.7,
+    },
+    {
+      url: `${BASE}/contact`,
+      lastModified: UPDATED,
+      changeFrequency: "yearly",
+      priority: 0.6,
     },
   ];
 }

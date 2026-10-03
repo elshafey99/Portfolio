@@ -1,0 +1,98 @@
+# Mohamed Magdy Elshafey
+
+> Mohamed Magdy Elshafey (Arabic: محمد مجدي الشافعي) is a Backend Developer from Cairo, Egypt, specializing in Laravel (PHP) and scalable SaaS systems. He has 2+ years of professional experience building production APIs for SaaS, ERP, healthcare, e-learning, and booking platforms.
+
+## Personal Information
+
+- Full name: Mohamed Magdy Elshafey
+- Also known as: Mohamed Elshafey, Elshafey99, محمد مجدي الشافعي
+- Location: Cairo, Egypt
+- Email: mahamedmagdy005@gmail.com
+- Phone / WhatsApp: +201025329322
+- Portfolio: https://mohamed-elshafey.vercel.app
+- GitHub: https://github.com/elshafey99
+- LinkedIn: https://www.linkedin.com/in/mohamed-elshafey-a59188364
+
+## Professional Summary
+
+Mohamed Magdy Elshafey is a Backend Developer and co-founder of CodeLine Tech with 2+ years of experience delivering production-grade Laravel APIs. He is currently the sole backend developer at Beyonex IT (Riyadh, Saudi Arabia — remote from Cairo), owning architecture, database design, and API delivery across 7+ products in HR, healthcare, wellness, legal, and recruitment domains.
+
+He specializes in multi-tenant SaaS architecture, RBAC, payment gateway integrations (Paymob, HyperPay, Stripe, Dineropay), WhatsApp Business API, Firebase, bilingual Arabic/English APIs, and automated testing with Pest PHP on GitHub Actions CI. He is currently implementing ZATCA e-invoicing integration.
+
+## Work Experience
+
+### Backend Developer — Beyonex IT (February 2026 – Present)
+Riyadh, Saudi Arabia (Remote from Cairo, Egypt)
+- Sole backend developer across 7+ products in HR, healthcare, wellness, legal, and recruitment
+- Built Beyonex Workflow (HR/CRM platform), Gaia Spa (booking platform), and Elagy Care (e-pharmacy) end-to-end
+- Integrated WhatsApp Business API, Dineropay, Firebase, Google Sign-In, and Apple Sign-In
+
+### Backend Developer — Brmja Tech (October 2024 – 2026)
+Giza, Egypt (Onsite)
+- Developed scalable RESTful APIs using Laravel 11 and 12
+- Led the backend of Bayt-Link (SaaS property management system)
+- Built Faya ERP (modular multi-tenant ERP for restaurants using Laravel Modules)
+- Built an internal CRM using HMVC architecture
+
+### Web Developer (Part-time) — Websolla (June 2025 – August 2025)
+Cairo, Egypt
+- Developed admin dashboards with Laravel and Blade
+- Refactored legacy code and improved performance
+
+## Technical Skills
+
+**Backend & APIs:** PHP 8.4, Laravel 11/12/13, Node.js, Express.js, RESTful APIs, Laravel Sanctum, JWT, Laravel Reverb (WebSockets), Livewire, Blade
+
+**Database & Testing:** MySQL, Database Design, Query Optimization, Transactions, Pest PHP, Feature Testing
+
+**Architecture:** OOP, SOLID Principles, Strategy Pattern, Adapter Pattern, State Machine, Service Layer, Clean Architecture, HMVC, Laravel Modules, Multi-Tenant SaaS, RBAC
+
+**Integrations & Tools:** Paymob, HyperPay, Stripe, WhatsApp Business API, Firebase (FCM, Auth), Google/Apple Sign-In, Git, GitHub Actions CI, Postman, Apidog, Composer
+
+## Projects
+
+### Darabny — Training Marketplace Platform
+Built 460+ REST API endpoints across 5 portals (students, training providers, instructors, universities, admins) on Laravel 13. Implemented Paymob card/wallet payments, Stripe, refunds, provider payouts, QR-verifiable certificates, attendance tracking, Firebase auth & push notifications, and a Scholars subscription module. Maintained 100+ Pest feature test files running on GitHub Actions CI.
+Tech: Laravel 13, PHP 8.4, MySQL, Sanctum, Paymob, Stripe, Firebase, Pest
+
+### Bayt-Link — SaaS Property Management System
+Designed database architecture for buildings, units, owners, and tenants. Implemented RBAC and transaction-safe financial workflows for rent collection. Developed complaints, online payments, voting, internal chat with Laravel Reverb, notifications, and subscription modules.
+Tech: Laravel 12, MySQL, Livewire, Clean Architecture
+
+### Beyonex Workflow — Business Management Platform
+Architected a multi-company HR/CRM/project management platform with company/branch-scoped data isolation and RBAC. Built a CRM pipeline (quotations → contracts → invoices → payments), QR attendance, leave approvals, real-time chat with Laravel Reverb, and WhatsApp Business API customer conversations.
+Tech: Laravel 12, MySQL, Sanctum, Reverb, WhatsApp Business API, Pest
+
+### Gaia Spa — At-Home Spa Booking Platform
+Built a booking engine with therapist schedules, leave management, service areas, and distance-based travel fees. Implemented loyalty features: membership tiers, packages, session credits, gift cards, vouchers, coupons, and referral rewards. Designed a pluggable payment gateway layer (Strategy pattern) with Google/Apple Sign-In and FCM push notifications.
+Tech: Laravel 13, MySQL, Sanctum, Firebase, Pest
+
+### Elagy Care — E-Pharmacy & Prescription Platform (In Progress)
+Built the backend for a multi-sided e-pharmacy serving patients, doctors, pharmacists, pharmacies, delivery drivers, and admins. Designed an order state machine with automatic routing to nearby pharmacy branches, stock reservation, and drug substitution rules. Integrated HyperPay with refunds and pharmacy settlements. Secured with MFA/OTP, audit trails, consent management, and RBAC.
+Tech: Laravel 13, PHP 8.5, MySQL, Sanctum, Firebase, Pest
+
+### Nash Menu — Online Restaurant Menu & Ordering
+Bilingual (Arabic/English) online menu and ordering system for Nash Nashville Chicken restaurant, built through CodeLine Tech. Supports delivery, pickup, and dine-in with table QR verification. Orders are also routed via WhatsApp. Admin dashboard manages menu, orders, and restaurant settings (delivery fees, tax, minimum order).
+Tech: Laravel, PHP 8.4, RESTful APIs, React, i18n
+
+### Faya ERP — Restaurant ERP System
+Modular multi-tenant ERP for restaurants and cafés built with Laravel Modules architecture. Covers inventory management and sales workflows for multiple tenants on a shared database.
+Tech: Laravel 12, MySQL, Laravel Modules
+
+## Education
+
+Bachelor's Degree in Computer Science
+Faculty of Computers and Artificial Intelligence, Benha University, Egypt
+October 2020 – July 2024
+
+## Languages
+
+- Arabic: Native
+- English: Professional Working Proficiency
+
+## Availability
+
+Open to full-time Backend Developer positions and backend consulting projects worldwide (remote).
+
+Contact: mahamedmagdy005@gmail.com | WhatsApp: +201025329322
+Portfolio: https://mohamed-elshafey.vercel.app

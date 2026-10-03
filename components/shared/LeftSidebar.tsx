@@ -56,14 +56,14 @@ export function LeftSidebar() {
         >
           {/* Name & Title */}
           <div className="space-y-2 mb-4">
-            <h1 className="text-4xl font-black font-outfit uppercase tracking-tighter leading-none">
+            <p className="text-4xl font-black font-outfit uppercase tracking-tighter leading-none">
               <span className="block text-white drop-shadow-lg">
                 {personalInfo.name.split(" ")[0]}
               </span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/90 to-primary drop-shadow-sm">
                 {personalInfo.name.split(" ")[1]}
               </span>
-            </h1>
+            </p>
             <p className="text-sm text-neutral-400 font-medium tracking-wide uppercase">
               {personalInfo.title.split(" | ")[0]}
             </p>
